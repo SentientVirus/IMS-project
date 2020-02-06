@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <body>
-<form action="/add_user.php" style="border:1px solid #ccc">
+<form action="add_user.php" method="POST" >
 <div>
 	<h1>Register</h1>
 	<p>Please fill in the following fields to register:</p>
 
 	<hr>
 	<label><b>Email:</b></label>
-	<input type="text" placeholder="Enter Email" name="email" required><br><br>
+	<input type="email" placeholder="Enter Email" name="email" required><br><br>
 
 	<label><b>User name:</b></label>
 	<input type="text" placeholder="Enter username" name="username" required><br><br>
@@ -26,6 +26,7 @@
 		<!-- if you click here you will go back to homepage -->
 		<button type="submit" formnovalidate formaction="http://localhost:8888/homepage.php">Cancel</button>
 		<!-- if you click here you will be registerd and go to loginpage -->
+		<!-- Later: "please varify your email"  -->
 		<button type="submit">Register </button>
 	</div>
 </div>
