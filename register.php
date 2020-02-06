@@ -18,6 +18,14 @@
 
 	<label><b>Confirm password:</b></label>
 	<input type="password" placeholder="Confirm password" name="confirmpassword" required><br><br>
+	
+	<!-- Do we care about if there is a robot using our webserver?  
+	If we do, add a capatcha  -->
+<!-- 
+	<label><b>Enter below image text here:</b></label>
+	<input type="text" name="captchacode" >
+	<img src="captcha.php" /> <br><br>
+ -->
 
 	<!-- this line need to be changed to a link with terms of agreement -->
 	<p>By creating an account you agree to our <a href="linktotermsandprivacypage.html" style="color:dodgerblue">Terms & Privacy</a>.</p>
