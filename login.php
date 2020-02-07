@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
 <body>
-<form action="???.php" method="POST">
-
+<form action="check_login.php" method="POST" style="border:1px solid #ccc">
 <div>
-<input type="text" name="email"><br>
-<input type="text" name="password"><br>
+	<h1>Login</h1>
 
-<div>
-<button type="button">Cancel</button>
-<button type="submit">Login</button>
-</div>
+	<hr>
+	<label><b>Email:</b></label>
+	<input type="text" placeholder="Enter Email" name="email" required><br><br>
+	<label><b>Password:</b></label>
+	<input type="password" placeholder="Enter password" name="password" required><br><br>
 
-<input type="submit" value="Register">
+	<div>
+		<button type="button">Cancel</button>
+		<button type="submit">Login</button>
+	</div>
 
 </div>
 </form>

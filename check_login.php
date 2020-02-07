@@ -1,4 +1,6 @@
 <?php
+////check captchacode
+
 // session_start();
 // if (isset($_POST['submit']))
 //{
@@ -12,12 +14,10 @@
 //        exit();
 //    }
 //}
-?> 
-<?php
-include 
-$email = $_POST['useremail'];
-$password = $_POST['userpassword'];
-$confirmpassword = $_POST['confirmpasswork'];
+
+$email = $_POST['email'];
+$password = $_POST['password'];
+$confirmpassword = $_POST['confirmpassword'];
 $email = mysql_real_escape_string($email);
 $password = mysql_real_escape_string($password);
 $confirmpassword = mysql_real_escape_string($confirmpassword);

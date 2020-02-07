@@ -1,6 +1,7 @@
 <?php
-include("connect_f2fd.php");
+include("connectDB.php");
 
+// create the table of Users
 $sql = "DROP TABLE if exists Users";
 
          if(mysqli_query($link, $sql)) {
@@ -9,12 +10,12 @@ $sql = "DROP TABLE if exists Users";
             echo "Table Users is not deleted successfully<br />";
          }
 
-// sql to create table
+// sql to create table 
 $sql = "CREATE TABLE Users (
 id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50) NOT NULL UNIQUE,
 email VARCHAR(50) NOT NULL UNIQUE,
 password VARCHAR(30) NOT NULL,
-country VARCHAR(30),
 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
 
@@ -37,7 +38,7 @@ $sql = "DROP TABLE if exists Traits";
 // sql to create table
 $sql = "CREATE TABLE Traits (
 id INT AUTO_INCREMENT PRIMARY KEY,
-question VARCHAR(128) NOT NULL UNIQUE,
+question VARCHAR(128) NOT NULL UNIQUE
 )";
 
 if ($link->query($sql) === TRUE) {
@@ -135,7 +136,7 @@ $sql = "CREATE TABLE Results (
   user_id INT(32) NOT NULL,
   disease_id INT(32) NOT NULL,
   result FLOAT NOT NULL,
-  FOREIGN KEY (trait_id) REFERENCES Traits(id),
+  FOREIGN KEY (user_id) REFERENCES Traits(id),
   FOREIGN KEY (disease_id) REFERENCES Diseases(id)
 )";
 
@@ -145,5 +146,5 @@ if ($link->query($sql) === TRUE) {
     echo "Error creating table Results: " . $link->error;
 }
 
-include("closeDB.php");
+include("disconnectDB.php");
 ?>
