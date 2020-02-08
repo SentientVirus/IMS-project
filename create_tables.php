@@ -1,16 +1,19 @@
 <?php
 include("connectDB.php");
+//debug the table creation correlations' foreign key is error
+
+$sql = "SET FOREIGN_KEY_CHECKS = 0;";
+mysqli_query($link, $sql);
 
 // create the table of Users
-$sql = "DROP TABLE if exists Users";
+$sql = "DROP TABLE if exists Users;";
+if(mysqli_query($link, $sql)) {
+  echo "<br>Table Users is deleted successfully";
+} else {
+  echo "<br>Table Users is not deleted successfully";
+}
 
-         if(mysqli_query($link, $sql)) {
-            echo "Table Users is deleted successfully<br />";
-         } else {
-            echo "Table Users is not deleted successfully<br />";
-         }
-
-// sql to create table 
+// sql to create table
 $sql = "CREATE TABLE Users (
 id INT AUTO_INCREMENT PRIMARY KEY,
 username VARCHAR(50) NOT NULL UNIQUE,
@@ -20,19 +23,19 @@ reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
 
 if ($link->query($sql) === TRUE) {
-    echo "Table Users created successfully";
+    echo "<br>Table Users created successfully";
 } else {
-    echo "Error creating table Users: " . $link->error;
+    echo "<br>Error creating table Users: " . $link->error;
 }
 
 // ----------------------------------------------------------------------------
 // create the table of Traits
-$sql = "DROP TABLE if exists Traits";
+$sql = "DROP TABLE if exists Traits;";
 
          if(mysqli_query($link, $sql)) {
-            echo "Table Traits is deleted successfully<br />";
+            echo "<br>Table Traits is deleted successfully";
          } else {
-            echo "Table Traits is not deleted successfully<br />";
+            echo "<br>Table Traits is not deleted successfully";
          }
 
 // sql to create table
@@ -42,19 +45,42 @@ question VARCHAR(128) NOT NULL UNIQUE
 )";
 
 if ($link->query($sql) === TRUE) {
-    echo "Table Traits created successfully";
+    echo "<br>Table Traits created successfully";
 } else {
-    echo "Error creating table Traits: " . $link->error;
+    echo "<br>Error creating table Traits: " . $link->error;
+}
+
+// ----------------------------------------------------------------------------
+// create the table of Diseases
+$sql = "DROP TABLE if exists Diseases;";
+
+         if(mysqli_query($link, $sql)) {
+            echo "<br>Table Diseases is deleted successfully";
+         } else {
+            echo "<br>Table Diseases is not deleted successfully";
+         }
+
+// sql to create table
+$sql = "CREATE TABLE Diseases (
+  id INT(32) AUTO_INCREMENT PRIMARY KEY,
+  disease_name VARCHAR(128) NOT NULL,
+  description TEXT
+)";
+
+if ($link->query($sql) === TRUE) {
+    echo "<br>Table Diseases created successfully";
+} else {
+    echo "<br>Error creating table Diseases: " . $link->error;
 }
 
 // ----------------------------------------------------------------------------
 // create the table of Correlations
-$sql = "DROP TABLE if exists Correlations";
+$sql = "DROP TABLE if exists Correlations;";
 
          if(mysqli_query($link, $sql)) {
-            echo "Table Correlations is deleted successfully<br />";
+            echo "<br>Table Correlations is deleted successfully";
          } else {
-            echo "Table Correlations is not deleted successfully<br />";
+            echo "<br>Table Correlations is not deleted successfully";
          }
 
 // sql to create table
@@ -67,43 +93,21 @@ FOREIGN KEY (disease_id) REFERENCES Diseases(id)
 )";
 
 if ($link->query($sql) === TRUE) {
-    echo "Table Correlations created successfully";
+    echo "<br>Table Correlations created successfully";
 } else {
-    echo "Error creating table Correlations: " . $link->error;
+    echo "<br>Error creating table Correlations: " . $link->error;
 }
 
 
-// ----------------------------------------------------------------------------
-// create the table of Diseases
-$sql = "DROP TABLE if exists Diseases";
-
-         if(mysqli_query($link, $sql)) {
-            echo "Table Diseases is deleted successfully<br />";
-         } else {
-            echo "Table Diseases is not deleted successfully<br />";
-         }
-
-// sql to create table
-$sql = "CREATE TABLE Diseases (
-  id INT(32) AUTO_INCREMENT PRIMARY KEY,
-  disease_name VARCHAR(128) NOT NULL,
-  description TEXT
-)";
-
-if ($link->query($sql) === TRUE) {
-    echo "Table Diseases created successfully";
-} else {
-    echo "Error creating table Diseases: " . $link->error;
-}
 
 // ----------------------------------------------------------------------------
 // create the table of Answers
-$sql = "DROP TABLE if exists Answers";
+$sql = "DROP TABLE if exists Answers;";
 
          if(mysqli_query($link, $sql)) {
-            echo "Table Answers is deleted successfully<br />";
+            echo "<br>Table Answers is deleted successfully";
          } else {
-            echo "Table Answers is not deleted successfully<br />";
+            echo "<br>Table Answers is not deleted successfully";
          }
 
 // sql to create table
@@ -116,19 +120,19 @@ $sql = "CREATE TABLE Answers (
 )";
 
 if ($link->query($sql) === TRUE) {
-    echo "Table Answers created successfully";
+    echo "<br>Table Answers created successfully";
 } else {
-    echo "Error creating table Answers: " . $link->error;
+    echo "<br>Error creating table Answers: " . $link->error;
 }
 
 // ----------------------------------------------------------------------------
 // create the table of Results
-$sql = "DROP TABLE if exists Results";
+$sql = "DROP TABLE if exists Results;";
 
          if(mysqli_query($link, $sql)) {
-            echo "Table Results is deleted successfully<br />";
+            echo "<br>Table Results is deleted successfully";
          } else {
-            echo "Table Results is not deleted successfully<br />";
+            echo "<br>Table Results is not deleted successfully";
          }
 
 // sql to create table
@@ -141,9 +145,9 @@ $sql = "CREATE TABLE Results (
 )";
 
 if ($link->query($sql) === TRUE) {
-    echo "Table Results created successfully";
+    echo "<br>Table Results created successfully";
 } else {
-    echo "Error creating table Results: " . $link->error;
+    echo "<br>Error creating table Results: " . $link->error;
 }
 
 include("disconnectDB.php");
