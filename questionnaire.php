@@ -31,8 +31,8 @@ for($i = 0; $i < mysqli_num_rows($result); $i++) {
               <tr><td>
               <?php echo $arr[2]; ?>
               </td><td>
-              <input type="radio" value="No" name="<?php echo "Q".$i ?>" > No <p>
-              <input type="radio" value="Yes" name="<?php echo "Q".$i ?>" >Yes<p>
+              <input type="radio" value="Yes" name="<?php echo "Q".$i ?>" > Yes <p>
+              <input type="radio" value="No" name="<?php echo "Q".$i ?>" >No<p>
               </td></tr>
               <?php
             }
