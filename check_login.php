@@ -20,26 +20,49 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // To avoid SQL Injection
-$email = mysql_real_escape_string($email);
-$password = mysql_real_escape_string($password);
+//$email = mysql_real_escape_string($email);
+//$password = mysql_real_escape_string($password);
 
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+//hash password 
+$options = array("cost"=>4);
+$hashPassword = password_hash($password,PASSWORD_BCRYPT,$options);
 
 // check that email & password combination exist
-$result = "SELLECT id FROM Users WHERE email=$email AND password = $hashed_password";
+// $result = "SELLECT id FROM Users WHERE email=$email AND password = $hashPassword";
+// 
+// 
+// check that email & password combination exist
+// if ($result == NULL ) {
+// 	echo 
+// 	header("login.php")
+// }
 
-if ($result == NULL ) {
+$query = "select * from users where email = '".$email."'";
+$rs = mysqli_query($link, $query);
+$numRows = mysqli_num_rows($rs);
 	
-	header("login.php")
+if($numRows  == 1){
+	$row = mysqli_fetch_assoc($rs);
+	if(password_verify($password, $row['password'])){
+		echo "Password verified";
+		// this needs to be changed to a hompage where you are already logged in, 
+		// but I guess that will be solved automaticly wih the sessions? 
+		header('Location: http://localhost:8888/index.php');
+	}
+	else{
+		header('Location: http://localhost:8888/login.php');
+		echo "Wrong Password";
+	}
+}
+else {
+	echo "No User found";
 }
 
 // later: check if valid email address by sending email 
 
 include 'disconnectDB.php';
 
-header('Location: http://localhost:8888/homepage.php');
+
 ?>
-
-
 
 

@@ -130,12 +130,12 @@
 				<label><b>Confirm password:</b></label>
 				<input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br>
 	
-				<!-- Do we care about if there is a robot using our webserver?  
-				If we do, add a capatcha:
+				<!-- Add a captcha here
 		
 				<label><b>Enter below image text here:</b></label>
 				<input type="text" name="captchacode" >
 				<img src="captcha.php" /> <br><br>
+				
 				-->
 
 				<!-- this line need to be changed to a link with terms of agreement -->
@@ -143,10 +143,10 @@
 
 				<div>
 					<!-- if you click here you will go back to homepage -->
-					<button type="submit" formnovalidate formaction="http://localhost:8888/homepage.php">Cancel</button>
+					<button type="submit" formnovalidate formaction="http://localhost:8888/index.php">Cancel</button>
 					<!-- if you click here you will be registerd and go to loginpage -->
-					<!-- Later: "please varify your email"  -->
 					<button type="submit">Register </button>
+					<!-- Later: "please varify your email"  -->
 				</div>
 			</form>
 		</div>
