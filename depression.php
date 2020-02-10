@@ -5,7 +5,7 @@ $result = mysqli_query($link,"select disease_name, Traits.id, question, rg from 
 
 <html>
 <h1>The test of your Depression risk</h1>
-<form name="Depression">
+<form name="Depression" action="result.php" method="post">
 Are your working environment noisy?<p>
 <input type="radio" value="Yes" name="Q1" >Yes<p>
 <input type="radio" value="No" name="Q1">No<p>
