@@ -15,7 +15,7 @@ $sql = "CREATE TABLE Users (
 id INT AUTO_INCREMENT PRIMARY KEY,
 username VARCHAR(50) NOT NULL UNIQUE,
 email VARCHAR(50) NOT NULL UNIQUE,
-password VARCHAR(30) NOT NULL,
+password VARCHAR(255) NOT NULL,
 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
 
@@ -48,6 +48,30 @@ if ($link->query($sql) === TRUE) {
 }
 
 // ----------------------------------------------------------------------------
+// create the table of Diseases
+$sql = "DROP TABLE if exists Diseases";
+
+         if(mysqli_query($link, $sql)) {
+            echo "Table Diseases is deleted successfully<br />";
+         } else {
+            echo "Table Diseases is not deleted successfully<br />";
+         }
+
+// sql to create table
+$sql = "CREATE TABLE Diseases (
+  id INT(32) AUTO_INCREMENT PRIMARY KEY,
+  disease_name VARCHAR(128) NOT NULL,
+  description TEXT
+)";
+
+if ($link->query($sql) === TRUE) {
+    echo "Table Diseases created successfully";
+} else {
+    echo "Error creating table Diseases: " . $link->error;
+}
+
+
+// ----------------------------------------------------------------------------
 // create the table of Correlations
 $sql = "DROP TABLE if exists Correlations";
 
@@ -70,30 +94,6 @@ if ($link->query($sql) === TRUE) {
     echo "Table Correlations created successfully";
 } else {
     echo "Error creating table Correlations: " . $link->error;
-}
-
-
-// ----------------------------------------------------------------------------
-// create the table of Diseases
-$sql = "DROP TABLE if exists Diseases";
-
-         if(mysqli_query($link, $sql)) {
-            echo "Table Diseases is deleted successfully<br />";
-         } else {
-            echo "Table Diseases is not deleted successfully<br />";
-         }
-
-// sql to create table
-$sql = "CREATE TABLE Diseases (
-  id INT(32) AUTO_INCREMENT PRIMARY KEY,
-  disease_name VARCHAR(128) NOT NULL,
-  description TEXT
-)";
-
-if ($link->query($sql) === TRUE) {
-    echo "Table Diseases created successfully";
-} else {
-    echo "Error creating table Diseases: " . $link->error;
 }
 
 // ----------------------------------------------------------------------------

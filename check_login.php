@@ -10,25 +10,36 @@
 //    else
 //        { $_SESSION['error']= "The Captcha code is wrong. Try again.";
 //        // redirect to another page or to the form page again
-//        header("index.php"); // this is a link back to our regform.php
+//        header("register.php"); // this is a link back to our register.php
 //        exit();
 //    }
 //}
+include 'connectDB.php';
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-$confirmpassword = $_POST['confirmpassword'];
+
+// To avoid SQL Injection
 $email = mysql_real_escape_string($email);
 $password = mysql_real_escape_string($password);
-$confirmpassword = mysql_real_escape_string($confirmpassword);
-$email = filter_var($email, FILTER_SANITIZE_EMAIL);
-if (filter_val($email, FILTER_VALIDATE_EMAIL))
-{
-    
+
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+// check that email & password combination exist
+$result = "SELLECT id FROM Users WHERE email=$email AND password = $hashed_password";
+
+if ($result == NULL ) {
+	
+	header("login.php")
 }
-else
-{
-    header('Location: http://f2fd.com/f2fd_main');
-}
+
+// later: check if valid email address by sending email 
+
+include 'disconnectDB.php';
+
+header('Location: http://localhost:8888/homepage.php');
 ?>
+
+
+
 

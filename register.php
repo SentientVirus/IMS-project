@@ -41,6 +41,8 @@
             } 
         </script> 
     </head>
+    
+<!-- feel free to change this css code so it matches the homepage -->
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
@@ -105,6 +107,7 @@
 			}
 		</style>
 	</head>
+	
     <body>
     	<div class="container">
 			<form onSubmit = "return checkPassword(this)" action="add_user.php" method="POST" >
