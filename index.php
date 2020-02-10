@@ -47,10 +47,9 @@
             ?>
             <br>
             <div class="navbar" style = "margin-top:-18px;">
-              <a class="active" href="index.php"><i class="fa fa-fw fa-home"></i> Home</a>
+              <a class="active" href="index.php">Home</a>
               <div class="dropdown">
-                <button class="dropbtn">Dropdown
-                  <i class="fa fa-caret-down"></i>
+                <button class="dropbtn">Tests
                 </button>
                 <div class="dropdown-content">
                   <a href="depression.php">Depression</a>
@@ -64,8 +63,8 @@
             <div id = "bloc1" class = "container" style = "margin-right: 10px; width: 600px;">
               <img src="overlay.png" alt="Avatar" class="image">
               <div class="overlay" style = "margin-top: 60px;">
-                <h1 style = "margin-bottom:-20px; margin-left:0px; width: 570px;">About</h1>
-                <div class = "table">
+                <h1 style = "margin-bottom:-20px; margin-left:0px;width: 95%;">About</h1>
+                <div class = "table" style = "height:392px;">
                   <div>
                   <p>We provide questionnaires based on GWAS studies from UK Biobank.
                     By taking this questionnaires, which are about some of your
@@ -73,7 +72,7 @@
                     whether you are likely to develop an illness (which is also a
                     trait, hence the name phenotype-to-phenotype).</p>
                     <img src="tacita.png" alt="Tea cup"
-                       style="width: 120px; height: 100px; margin-left: 100px;"/>
+                       style="width: 120px; height: 100px; margin-left: 15%;"/>
                     <img src="flecha.gif" alt="Arrow"
                         style="width: 150px; height: 50px; margin-bottom: 20px;"/>
                     <img src="eye.png" alt="Depression"
@@ -93,29 +92,24 @@
             <div id = "bloc2" class = "container" style = "margin-left: 10px; width: 600px;">
               <img src="overlay2.png" alt="Avatar" class="image">
               <div class="overlay" style = "margin-top: 60px;">
-                <h1 style = "margin-bottom:-20px; margin-left:0px; width: 570px;">
+                <h1 style = "margin-bottom:-20px; margin-left:0px; width: 95%;">
                 Why take our test</h1>
-                <div class = "table">
+                <div class = "table" style = "height:392px;">
                   <div>
-                  <p>We provide questionnaires based on GWAS studies from UK Biobank.
-                    By taking this questionnaires, which are about some of your
-                    manifested traits (phenotype), you will get some insight about
-                    whether you are likely to develop an illness (which is also a
-                    trait, hence the name phenotype-to-phenotype).</p>
-                    <img src="tacita.png" alt="Tea cup"
-                       style="width: 120px; height: 100px; margin-left: 100px;"/>
-                    <img src="flecha.gif" alt="Arrow"
-                        style="width: 150px; height: 50px; margin-bottom: 20px;"/>
-                    <img src="eye.png" alt="Depression"
-                        style="width: 100px; height: 100px;"/>
-                  <p>For example, there is a correlation between tea intake
-                    and depression. This means that, if you drink a lot of tea,
-                    you are more likely to have depression.</p>
-              <p>Based on this and other traits, our website assesses
-                whether you are likely or not to have depression or other conditions
-                according to your answers, but keep in mind that there are more
-                factors to take into account and a positive result does <b>not</b> mean
-                that you will develop the illness.</p>
+                  <p>As it has been previously stated, out test is about common
+                  illnesses such as depression. You can only get an actual diagnosis
+                of an illness if you already suffer the disease. Otherwise, you
+              have to undergo genetic testing, which is usually slow. That's
+            why we recommend you to take our tests. They consist only of 20
+          questions, so they will only take a few minutes and you will get a result.</p>
+          <p>Of course, the result will not be as accurate as genetic testing,
+            but it has preventive value. Not only does it tell you whether you
+            are at risk of developing the illness, but the questions in our test
+            are related to some of the risk factor, so you might be able to replace
+            some of your unhealthy habits by healthy ones.</p>
+            <p>However, when analyzing your results, keep in mind that correlation
+              does not imply causation: for example, if you stop drinking tea,
+              you won't become less likely to develop depression.</p>
               </div>
               </div>
               </div>
@@ -126,10 +120,10 @@
             <br>
             <div id = "block_container">
             <div id = "bloc1" class = "table" style = "margin-right: 10px; width: 500px;">
-              <p><a href= "terms_privacy.php">Terms & Privacy</a></p></div>
+              <p><a href= "terms_privacy.php" target="_blank">Terms & Privacy</a></p></div>
             <div id = "bloc2" class = "table" style = "margin-left: 10px; width: 500px;">
-              <p>Data from <a href= "https://www.ukbiobank.ac.uk/">
-                UK Biobank</a> and cover images from <a href = "https://pixabay.com/">
+              <p>Data from <a href= "https://www.ukbiobank.ac.uk/" target="_blank">
+                UK Biobank</a> and cover images from <a href = "https://pixabay.com/" target="_blank">
                   Pixabay</a></p></div>
             </div>
             <!--<form id="form">
