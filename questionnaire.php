@@ -41,6 +41,26 @@ for($i = 0; $i < mysqli_num_rows($result); $i++) {
 
       <input type="button" value="Submit" onclick="loopForm(document.thisForm);">
     </form>
+    <p>
+    <div id="radioResults"></div>
+
+
+
+    <script type="text/javascript">
+      function loopForm(form) {
+        var radioResults = 'Radio buttons: ';
+        for (var i = 0; i < form.elements.length; i++ ) {
+            if (form.elements[i].type == 'radio') {
+                if (form.elements[i]. == true) {
+                    radioResults += form.elements[i].value + ' ';
+                }
+            }
+        }
+        document.getElementById("cbResults").innerHTML = cbResults;
+        document.getElementById("radioResults").innerHTML = radioResults;
+    }
+    </script>
+
 
   </body>
 </html>
