@@ -30,9 +30,9 @@
         <option value= "depression.php">Depression</option>
         <option value= "illness2.php">Illness2</option></select>
 
-        <a href='login.php' class = "btn btn1" href='login.php'
+        <a href='register.php' class = "btn btn1"
         style = "text-decoration: none; margin-left: 50px; margin-right:50px;
-        font-family: 'Tahoma', sans-serif; font-size: 14px;">To log in page</a>
+        font-family: 'Tahoma', sans-serif; font-size: 14px;">Register page</a>
       </div>
         <div id="main" style = "margin:auto;">
             <?php
@@ -54,7 +54,12 @@
                 <div class="dropdown-content">
                   <a href="depression.php">Depression</a>
                   <a href="#">Illness2</a></div></div>
-              <a href="login.php"> Login</a>
+                  <div class="dropdown">
+                    <button class="dropbtn">Login
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="login.php">Login</a>
+                      <a href="register.php">Register</a></div></div>
               <a href="#"> Profile</a>
             </div>
             <!-- <div class = "table" style = "margin: auto; border-style: outset;
