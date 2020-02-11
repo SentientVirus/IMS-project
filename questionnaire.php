@@ -19,10 +19,9 @@ for($i = 0; $i < mysqli_num_rows($result); $i++) {
     <title>Auto Generated Questions</title>
   </head>
   <body>
+    <table border='1'>
 
-    <form name="Depression" action="result.php" method="post">
-
-      <table border='1'>
+      <form name="Depression" action="result.php" method="post" target="_self">
         <tr><th>Question</th><th>Please choose:</th></tr>
           <?php
             for ($i=0; $i < mysqli_num_rows($result); $i++) {
@@ -31,17 +30,15 @@ for($i = 0; $i < mysqli_num_rows($result); $i++) {
               <tr><td>
               <?php echo $arr[2]; ?>
               </td><td>
-              <input type="radio" value="Yes" name="<?php echo "Q".$i ?>" > Yes <p>
+              <input type="radio" value="Yes" name="<?php echo "Q".$i ?>"  checked> Yes <p>
               <input type="radio" value="No" name="<?php echo "Q".$i ?>" >No<p>
               </td></tr>
               <?php
             }
            ?>
-      </table>
-
-      <input type="button" value="Submit" onclick="loopForm(document.thisForm);">
-    </form>
-    <p>
+        <tr><td><input type="submit" value="Submit" name="Submit"></td></tr>
+      </form>
+    </table>
     <div id="radioResults"></div>
 
 
@@ -56,7 +53,6 @@ for($i = 0; $i < mysqli_num_rows($result); $i++) {
                 }
             }
         }
-        document.getElementById("cbResults").innerHTML = cbResults;
         document.getElementById("radioResults").innerHTML = radioResults;
     }
     </script>
