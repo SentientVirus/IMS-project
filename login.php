@@ -17,7 +17,7 @@
 				<input type="password" placeholder="Enter password" name="password" required><br><br>
 
 				<div>
-					<button type="button">Cancel</button>
+					<button type="submit" formnovalidate formaction="http://localhost:8888/index.php">Cancel</button>
 					<button type="submit">Login</button>
 				</div>
 

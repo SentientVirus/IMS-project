@@ -1,4 +1,7 @@
 <?php
+	session_start();
+?>
+<?php
 include 'connectDB.php';
 
 // session_start();
@@ -33,7 +36,8 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 else {
 	//mabye change this so it becomes an error message on the same page 
-	echo("$email is not a valid email address");
+	$_SESSION['error'] = "$email is not a valid email address";
+	header('Location: http://localhost:8888/register.php');
 }
 	
 // Check that email doesn't already exist 
@@ -42,7 +46,8 @@ $rs = mysqli_query($link, $query);
 $numRows = mysqli_num_rows($rs);
 if(!$numRows == 0){
 	// aslo change this so it becomes an error message on the same page 
-	echo ("This email already exist, try another or ask for a new password if you have forgot your old.");
+	$_SESSION['error'] = "This email already exist, try another or ask for a new password if you have forgot your old.";
+	header('Location: http://localhost:8888/register.php');
 	}
 else {
 	// Hash password 

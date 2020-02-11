@@ -1,19 +1,21 @@
+<?php
+	session_start();
+?>
+
+<!-- add this where you want errormessage to be displayed  -->
+<!-- 
+    			<?php
+					if (isset($_SESSION['error'])) {
+   					 	$errormsg = $_SESSION['error'];
+    					echo $errormsg;
+   		 				unset($_SESSION['error']);
+					}
+
+				?>
+ -->
 <!DOCTYPE html>
 <html>
 	<head>
-<!-- 
-	<?php
-		session_start();
-	?>
-
-	<?php
-		if (isset($_SESSION['error'])) {
-			$errormsg = $_SESSION['error'];
-			unset($_SESSION['error']);
-			echo '<p <strong> $errormsg </strong><br/></p>';
-		}
-	?>
- -->
 		<script> 
             // Function to check whether both passwords are equal. 
             function checkPassword(form) { 
@@ -109,6 +111,7 @@
 	</head>
 	
     <body>
+    
     	<div class="container">
 			<form onSubmit = "return checkPassword(this)" action="add_user.php" method="POST" >
 				<h1>Register</h1>
@@ -146,11 +149,14 @@
 					<button type="submit" formnovalidate formaction="http://localhost:8888/index.php">Cancel</button>
 					<!-- if you click here you will be registerd and go to loginpage -->
 					<button type="submit">Register </button>
+
 					<!-- Later: "please varify your email"  -->
 				</div>
+				
 			</form>
+
 		</div>
-		
+
 		<div id="message">
   			<h4>Password must contain the following:</h4>
   			<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
