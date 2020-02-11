@@ -1,18 +1,6 @@
 <?php
 	session_start();
 ?>
-
-<!-- add this where you want errormessage to be displayed  -->
-<!-- 
-    			<?php
-					if (isset($_SESSION['error'])) {
-   					 	$errormsg = $_SESSION['error'];
-    					echo $errormsg;
-   		 				unset($_SESSION['error']);
-					}
-
-				?>
- -->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -145,14 +133,24 @@
 				<p>By creating an account you agree to our <a href="linktotermsandprivacypage.html" style="color:dodgerblue"> Terms & Privacy</a>.</p>
 
 				<div>
+					<!-- change this button with CSS so that it looks nice -->
 					<!-- if you click here you will go back to homepage -->
-					<button type="submit" formnovalidate formaction="http://localhost:8888/index.php">Cancel</button>
+					<input type="button" value="Cancel" formnovalidate onClick="window.location = 'http://localhost:8888/index.php'"></button>
 					<!-- if you click here you will be registerd and go to loginpage -->
-					<button type="submit">Register </button>
+					<button type="submit" >Register </button>
 
 					<!-- Later: "please varify your email"  -->
+				<br />
+				<?php
+					if (isset($_SESSION['error'])) {
+   					 	$errormsg = $_SESSION['error'];
+    					echo $errormsg;
+   		 				unset($_SESSION['error']);
+					}
+
+				?>
 				</div>
-				
+
 			</form>
 
 		</div>
