@@ -15,7 +15,7 @@
         <!-- <div class="sidebar">
             <img src="f2fd_logo.png" alt="A generic logo"
                  style="width: 150px;height: 150px" id="logo">
-        </div> -->
+        </div>
         <div id = "overlayer" onclick="off()"></div>
         <div class = "typewriter" style = "margin: auto; border-radius: 10px;
         width: 500px; padding:30px; margin-top:20px;">
@@ -33,7 +33,7 @@
         <a href='register.php' class = "btn btn1"
         style = "text-decoration: none; margin-left: 50px; margin-right:50px;
         font-family: 'Tahoma', sans-serif; font-size: 14px;">Register page</a>
-      </div>
+      </div>-->
         <div id="main" style = "margin:auto;">
             <?php
                 session_start();
@@ -115,6 +115,11 @@
             <p>However, when analyzing your results, keep in mind that correlation
               does not imply causation: for example, if you stop drinking tea,
               you won't become less likely to develop depression.</p>
+              <select autofocus name = "illness" onchange="location = this.value;" class = "btn btn1"; style = "text-decoration: none; margin-left: 35%;
+              height: 56px; font-family: 'Tahoma', sans-serif; font-size: 14px;">
+              <option value = "" selected = "selected">Choose test</option>
+              <option value= "depression.php">Depression</option>
+              <option value= "illness2.php">Illness2</option></select>
               </div>
               </div>
               </div>
