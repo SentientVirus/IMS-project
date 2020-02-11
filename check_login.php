@@ -21,18 +21,18 @@ if($numRows  == 1){
 	$row = mysqli_fetch_assoc($rs);
 	if(password_verify($password, $row['password'])){
 		echo "Password verified";
-		// this needs to be changed to a hompage where you are already logged in, 
-		// but I guess that will be solved automaticly wih the sessions? 
+		// this needs to be changed to a hompage where you are already logged in
 		header('Location: http://localhost:8888/index.php');
 	}
 	else{
-		// change this so the error message appear on same page
-		echo "Wrong Password";
+		$_SESSION['error'] = "Wrong password";
+		header('Location: http://localhost:8888/login.php');
+
 	}
 }
 else {
-	// change this so the error message appear on same page
-	echo "No User found";
+		$_SESSION['error'] = "No user found";
+		header('Location: http://localhost:8888/login.php');
 }
 
 // later: check if valid email address by sending email 
@@ -40,5 +40,7 @@ else {
 include 'disconnectDB.php';
 
 ?>
+
+
 
 
