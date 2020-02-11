@@ -21,6 +21,10 @@ foreach ($result as $row) {
     <title>Your Result!</title>
   </head>
 
+  <style media="screen">
+    body {text-align: center;}
+  </style>
+
   <body>
     <h2>Hi there!</h2>
     <?php
@@ -34,14 +38,14 @@ foreach ($result as $row) {
         }
       }
     }
-    echo "Your absolute score is:".$score;
+    echo "Your absolute depression-score is:".$score;
     $rel_score = $score*100/$max_score;
     if ($rel_score <= 50) {
-      echo "Your mental health is good as FUCK!!! Enjoy your life and rock on!";
+      echo "<br><hr><br>Your mental health is good as FUCK!!! Enjoy your life and rock on!";
     } else {
       $compare_to_50 = round(($rel_score-50)*2, 2);
       echo "<br><hr><br>You are {$compare_to_50}% more likely to develop
-      depression in the rest of your life than normal people. Congratulations!";
+      depression in the rest of your life than normal people.<br>Congratulations!";
 
     }
 
