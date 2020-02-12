@@ -41,7 +41,7 @@ $black = imagecolorallocate($image, 0, 0, 0);
 $white = imagecolorallocate($image, 255, 255, 255);
 $textcolors = [$black, $white];
  
-$fonts = [dirname(__FILE__).'\fonts\segoepr.ttf', dirname(__FILE__).'\fonts\Typsnitt - Futura Hv BT.ttf'];
+$fonts = [dirname(__FILE__).'/fonts/segoepr.ttf', dirname(__FILE__).'/fonts/Typsnitt - Futura Hv BT.ttf'];
  
 $string_length = 6;
 $captcha_string = generate_string($permitted_chars, $string_length);
