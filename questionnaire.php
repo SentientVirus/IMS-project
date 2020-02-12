@@ -25,7 +25,7 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
         <h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
     </div>
   </head>
-  <body style = "height: 210%;">
+  <body style = "height: 250%;">
     <div class="navbar" style = "margin-top:-18px;">
       <a href="index.php">Home</a>
       <div class="dropdown">
