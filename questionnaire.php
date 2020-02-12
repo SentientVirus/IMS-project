@@ -46,6 +46,14 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
 
       <form name="Depression" action="result.php" method="post" target="_self">
         <tr><th style = "width: 60%;">Question</th><th style = "width: 40%;">Please choose:</th></tr>
+    <meta charset="utf-8">
+    <title>Auto Generated Questions</title>
+  </head>
+  <body>
+    <table border='1'>
+
+      <form name="Depression" action="result.php" method="post" target="_self">
+        <tr><th>Question</th><th>Please choose:</th></tr>
           <?php
           $j = 1;
             for ($i= 0; $i < mysqli_num_rows($result); $i++) {
@@ -63,6 +71,7 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
            ?>
         <tr><td><input class = "btn btn1" type="submit" value="Submit" name="Submit"
           style = "width: 20%;"></td></tr>
+        <tr><td><input type="submit" value="Submit" name="Submit"></td></tr>
       </form>
     </table>
     <div id="radioResults"></div>
