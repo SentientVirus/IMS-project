@@ -20,6 +20,15 @@
 <!-- 				 This link needs to be changed to a hompage where you are already logged in -->
 					<button type="submit" formnovalidate formaction="index.php">Cancel</button>
 					<button type="submit">Login</button>
+				<br />
+				<?php
+					if (isset($_SESSION['error'])) {
+   					 	$errormsg = $_SESSION['error'];
+    					echo $errormsg;
+   		 				unset($_SESSION['error']);
+					}
+
+				?>
 				</div>
 
 			</div>
