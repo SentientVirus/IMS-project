@@ -52,7 +52,7 @@
                 <button class="dropbtn">Tests
                 </button>
                 <div class="dropdown-content">
-                  <a href="depression.php">Depression</a>
+                  <a href="questionnaire.php">Depression</a>
                   <a href="#">Illness2</a></div></div>
                   <div class="dropdown">
                     <button class="dropbtn">Login
@@ -118,7 +118,7 @@
               <select autofocus name = "illness" onchange="location = this.value;" class = "btn btn1"; style = "text-decoration: none; margin-left: 35%;
               height: 56px; font-family: 'Tahoma', sans-serif; font-size: 14px;">
               <option value = "" selected = "selected">Choose test</option>
-              <option value= "depression.php">Depression</option>
+              <option value= "questionnaire.php">Depression</option>
               <option value= "illness2.php">Illness2</option></select>
               </div>
               </div>

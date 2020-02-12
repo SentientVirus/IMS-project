@@ -29,7 +29,7 @@ foreach ($result as $row) {
     <h2>Hi there!</h2>
     <?php
     $score = 0;
-    for($i = 1; $i < $length + 1; $i++) {
+    for($i = 0; $i < $length; $i++) {
       if ($_POST["Q".$i] == "Yes"){
         $query4RG = mysqli_query($link,"select rg from Correlations
         where trait_id = {$i} and disease_id = 1;");
@@ -60,7 +60,6 @@ foreach ($result as $row) {
         $rg = mysqli_query($link,"select rg from Correlations
         where disease_id = 1 and trait_id = ".$i." ;");
         $score += $rg;
-
     }
     echo $score; */
 
