@@ -15,14 +15,37 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="indexcss.css">
     <title>Auto Generated Questions</title>
+    <div class = "header">
+        <img src="f2fd_logo.png" alt="F2FD"
+           style="width: 150px; height: 150px; margin-left: 80px" id="logo"/>
+        <h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
+    </div>
   </head>
   <body>
-    <table border='1'>
+    <div class="navbar" style = "margin-top:-18px;">
+      <a href="index.php">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn" style = "background-color: #D9181D;">Tests
+        </button>
+        <div class="dropdown-content">
+          <a href="questionnaire.php">Depression</a>
+          <a href="#">Illness2</a></div></div>
+          <div class="dropdown">
+            <button class="dropbtn">Login
+            </button>
+            <div class="dropdown-content">
+              <a href="login.php">Login</a>
+              <a href="register.php">Register</a></div></div>
+      <a href="#"> Profile</a>
+    </div>
+    <table class = "table1" border='0'>
 
       <form name="Depression" action="result.php" method="post" target="_self">
-        <tr><th>Question</th><th>Please choose:</th></tr>
+        <tr><th style = "width: 60%;">Question</th><th style = "width: 40%;">Please choose:</th></tr>
           <?php
           $j = 1;
             for ($i= 0; $i < mysqli_num_rows($result); $i++) {
@@ -38,7 +61,8 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
               $j++;
             }
            ?>
-        <tr><td><input type="submit" value="Submit" name="Submit"></td></tr>
+        <tr><td><input class = "btn btn1" type="submit" value="Submit" name="Submit"
+          style = "width: 20%;"></td></tr>
       </form>
     </table>
     <div id="radioResults"></div>

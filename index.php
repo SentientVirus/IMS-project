@@ -539,7 +539,7 @@ echo $pageContents;
 >>>>>>> 5f66c3990f97055105452836db3583dee6098109
 <!DOCTYPE html>
 <html>
-    <head>
+    <head> 
         <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="indexcss.css">
