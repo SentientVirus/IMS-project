@@ -1,4 +1,7 @@
 <?php
+	session_start();
+?>
+<?php
 
 include 'connectDB.php';
 
@@ -24,10 +27,9 @@ if($numRows  == 1){
 		// this needs to be changed to a hompage where you are already logged in
 		header('Location: index.php');
 	}
-	else{
+	else {
 		$_SESSION['error'] = "Wrong password";
 		header('Location: login.php');
-
 	}
 }
 else {

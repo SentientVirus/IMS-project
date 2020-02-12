@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head> 
@@ -35,9 +38,6 @@
         font-family: 'Tahoma', sans-serif; font-size: 14px;">Register page</a>
       </div>-->
         <div id="main" style = "margin:auto;">
-            <?php
-                session_start();
-            ?>
             <?php
                 if (isset($_SESSION['error']))
                 { $errormsg = $_SESSION['error'];

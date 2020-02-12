@@ -1,10 +1,16 @@
+<?php
+	session_start(); 
+?>
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <!--
 	<?php
 		session_start();
 	?>
  -->
+=======
+>>>>>>> 5f66c3990f97055105452836db3583dee6098109
 	<body>
 		<form action="check_login.php" method="POST" style="border:1px solid #ccc">
 			<div>
@@ -20,6 +26,14 @@
 <!-- 				 This link needs to be changed to a hompage where you are already logged in -->
 					<button type="submit" formnovalidate formaction="index.php">Cancel</button>
 					<button type="submit">Login</button>
+				<br />
+				<?php
+					if (isset($_SESSION['error'])) {
+   					 	$errormsg = $_SESSION['error'];
+    					echo $errormsg;
+   		 				unset($_SESSION['error']);
+					}
+				?>
 				</div>
 
 			</div>
