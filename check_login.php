@@ -22,17 +22,17 @@ if($numRows  == 1){
 	if(password_verify($password, $row['password'])){
 		echo "Password verified";
 		// this needs to be changed to a hompage where you are already logged in
-		header('Location: http://localhost:8888/index.php');
+		header('Location: /index.php');
 	}
 	else{
 		$_SESSION['error'] = "Wrong password";
-		header('Location: http://localhost:8888/login.php');
+		header('Location: /login.php');
 
 	}
 }
 else {
 		$_SESSION['error'] = "No user found";
-		header('Location: http://localhost:8888/login.php');
+		header('Location: /login.php');
 }
 
 // later: check if valid email address by sending email 

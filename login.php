@@ -18,7 +18,7 @@
 
 				<div>
 <!-- 				 This link needs to be changed to a hompage where you are already logged in -->
-					<button type="submit" formnovalidate formaction="http://localhost:8888/index.php">Cancel</button>
+					<button type="submit" formnovalidate formaction="/index.php">Cancel</button>
 					<button type="submit">Login</button>
 				</div>
 
