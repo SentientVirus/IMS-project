@@ -125,11 +125,16 @@
 				<input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br><br>
 				
 				<label><b>Enter the text below:</b></label>
-                <input type="text"  placeholder="Enter captchacode" name="captchacode" >
-                <img src="captcha.php" alt="CAPTCHA" class="captcha_image" style="margin-top: 20px"/> 
-                <i class='fas fa-redo refresh-captcha' style="font-size: 36px; margin-bottom: 5px;position: absolute"></i>
+                <input id="captcha" placeholder="Enter captcha "name="captchacode" type="text">
+                <img src="captcha.php" alt="CAPTCHA" class="captcha-image" style="margin-top: 20px"/> 
+                <i class="fas fa-redo refresh-captcha fa-2x"></i><br> 
                 <br>
-
+                <script type="text/javascript">
+                    var refreshButton = document.querySelector(".refresh-captcha");
+                    refreshButton.onclick = function() {
+                        document.querySelector(".captcha-image").src = "captcha.php?" + Date.now();
+                    };
+                </script>
 				<!-- this line need to be changed to a link with terms of agreement -->
 				<p>By creating an account you agree to our <a href="terms_and_privacy.php" target = "_blank" style="color:dodgerblue"> Terms & Privacy</a>.</p>
 
