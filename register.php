@@ -135,7 +135,7 @@
 				<div>
 					<!-- change this button with CSS so that it looks nice -->
 					<!-- if you click here you will go back to homepage -->
-					<input type="button" value="Cancel" formnovalidate onClick="window.location = '/index.php'"></button>
+					<input type="button" value="Cancel" formnovalidate onClick="window.location = 'index.php'"></button>
 					<!-- if you click here you will be registerd and go to loginpage -->
 					<button type="submit" >Register </button>
 
