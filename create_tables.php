@@ -41,7 +41,7 @@ $sql = "DROP TABLE if exists Traits;";
 // sql to create table
 $sql = "CREATE TABLE Traits (
 id INT AUTO_INCREMENT PRIMARY KEY,
-question VARCHAR(128) NOT NULL UNIQUE
+question VARCHAR(233) NOT NULL UNIQUE
 )";
 
 if ($link->query($sql) === TRUE) {
@@ -87,7 +87,7 @@ $sql = "DROP TABLE if exists Correlations;";
 $sql = "CREATE TABLE Correlations (
 trait_id INT(32) NOT NULL,
 disease_id INT(32) NOT NULL,
-rg FLOAT NOT NULL,
+rg FLOAT(32,5) NOT NULL,
 FOREIGN KEY (trait_id) REFERENCES Traits(id),
 FOREIGN KEY (disease_id) REFERENCES Diseases(id)
 )";

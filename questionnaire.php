@@ -1,64 +1,63 @@
 <?php
 include("connectDB.php");
-//1. Receive the Disease name from index.php.
-//2. Query out the questions that have the D_id chosen by user_id
-//3. Generate html page showing the questions and let the user answer the questions
-//4. Pass the answer to the result.php
-
-$result = mysqli_query($link, "select disease_name, Traits.id, question, rg
+$result = mysqli_query($link,"select disease_name, Traits.id, question, rg
 from Diseases, Traits, Correlations
-Where Diseases.id = disease_id and Traits.id = trait_id and disease_name = 'Depression';");
-if (mysqli_num_rows($result) == 0) {
-    print("No results matching your query<br>\n");
-} else {
-    echo "<table border='1'>"; //define an html table
-    //<th> Defines a header cell in a table
-    //<tr> Defines a row in a table
-    //<td> Defines a cell in a table
-    echo "<tr><th>Disease Name</th><th>Question:</th></tr>";
-    while ($row = mysqli_fetch_row($result)) {
-        echo "<tr><td>";
-        echo $row[0];
-        echo "</td><td>";
-        echo $row[1];
-        echo "</td></tr>";
-    }
-    echo "</table>";
-    include("disconnectDB.php");
-}
-?>
+where Diseases.id = disease_id and Traits.id = trait_id and disease_name = 'Depression';");
 
+for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
+     ${"result$i"} = mysqli_query($link,"select disease_name, Traits.id, question, rg
+     from Diseases, Traits, Correlations
+     where Diseases.id = disease_id and Traits.id = trait_id and disease_name = 'Depression'
+     LIMIT ".$i.",1;");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Questions of your life</title>
+    <title>Auto Generated Questions</title>
   </head>
   <body>
-    <div class="header"><h2>Survey of Depression</h2></div>
-    <div class="wrapContent">
-        <div class="sideNavigator">
-          <ul>
-            <li><a href="#"> Survey 1 </a></li>
-            <li><a href="#"> Survey 2 </a></li>
-          </ul>
-        </div>
+    <table border='1'>
 
-        <div class="content">
-          <h2>Survey Name</h2>
-          <h3>Question 1</h3>
-          <form action="index.html" method="post">
-            <input type="text" name="answer" size="30">
-            <input type="submit" name="submit" value="Submit">
-            <input type="hidden" name="questionid" value="questionid">
-            <input type="hidden" name="submitted" value="1">
-            <br><input type="radio" name="gender" value="yes">Yes<br>
-            <input type="radio" name="gender" value="no">No<br>
+      <form name="Depression" action="result.php" method="post" target="_self">
+        <tr><th>Question</th><th>Please choose:</th></tr>
+          <?php
+          $j = 1;
+            for ($i= 0; $i < mysqli_num_rows($result); $i++) {
+              $arr = mysqli_fetch_row(${"result$i"});
+              ?>
+              <tr><td>
+              <?php echo $arr[2]; ?>
+              </td><td>
+              <input type="radio" value="Yes" name="<?php echo "Q".$j ?>"  checked> Yes <p>
+              <input type="radio" value="No" name="<?php echo "Q".$j ?>" >No<p>
+              </td></tr>
+              <?php
+              $j++;
+            }
+           ?>
+        <tr><td><input type="submit" value="Submit" name="Submit"></td></tr>
+      </form>
+    </table>
+    <div id="radioResults"></div>
 
-          </form>
-        </div>
-  </div>
 
+
+    <script type="text/javascript">
+      function loopForm(form) {
+        var radioResults = 'Radio buttons: ';
+        for (var i = 1; i < form.elements.length; i++ ) {
+            if (form.elements[i].type == 'radio') {
+                if (form.elements[i]. == true) {
+                    radioResults += form.elements[i].value + ' ';
+                }
+            }
+        }
+        document.getElementById("radioResults").innerHTML = radioResults;
+    }
+    </script>
 
 
   </body>

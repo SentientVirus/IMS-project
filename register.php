@@ -1,19 +1,9 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
-<!-- 
-	<?php
-		session_start();
-	?>
-
-	<?php
-		if (isset($_SESSION['error'])) {
-			$errormsg = $_SESSION['error'];
-			unset($_SESSION['error']);
-			echo '<p <strong> $errormsg </strong><br/></p>';
-		}
-	?>
- -->
 		<script> 
             // Function to check whether both passwords are equal. 
             function checkPassword(form) { 
@@ -109,6 +99,7 @@
 	</head>
 	
     <body>
+    
     	<div class="container">
 			<form onSubmit = "return checkPassword(this)" action="add_user.php" method="POST" >
 				<h1>Register</h1>
@@ -130,27 +121,40 @@
 				<label><b>Confirm password:</b></label>
 				<input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br>
 	
-				<!-- Do we care about if there is a robot using our webserver?  
-				If we do, add a capatcha:
+				<!-- Add a captcha here
 		
 				<label><b>Enter below image text here:</b></label>
 				<input type="text" name="captchacode" >
 				<img src="captcha.php" /> <br><br>
+				
 				-->
 
 				<!-- this line need to be changed to a link with terms of agreement -->
 				<p>By creating an account you agree to our <a href="linktotermsandprivacypage.html" style="color:dodgerblue"> Terms & Privacy</a>.</p>
 
 				<div>
+					<!-- change this button with CSS so that it looks nice -->
 					<!-- if you click here you will go back to homepage -->
-					<button type="submit" formnovalidate formaction="http://localhost:8888/homepage.php">Cancel</button>
+					<input type="button" value="Cancel" formnovalidate onClick="window.location = 'index.php'"></button>
 					<!-- if you click here you will be registerd and go to loginpage -->
+					<button type="submit" >Register </button>
+
 					<!-- Later: "please varify your email"  -->
-					<button type="submit">Register </button>
+				<br />
+				<?php
+					if (isset($_SESSION['error'])) {
+   					 	$errormsg = $_SESSION['error'];
+    					echo $errormsg;
+   		 				unset($_SESSION['error']);
+					}
+
+				?>
 				</div>
+
 			</form>
+
 		</div>
-		
+
 		<div id="message">
   			<h4>Password must contain the following:</h4>
   			<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
