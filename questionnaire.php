@@ -61,8 +61,9 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
               $j++;
             }
            ?>
-        <tr><td><input class = "btn btn1" type="submit" value="Submit" name="Submit"
-          style = "width: 20%;"></td></tr>
+        <tr style = "background: none;"><td></td><td align = "right">
+          <input class = "btn btn1" type="submit" value="Submit" name="Submit"
+          style = "border-style: solid; border-width: 1px; width:150px;"></table></td></tr>
       </form>
     </table>
     <div id="radioResults"></div>
