@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 html, body {
-    height:110%;
+    height:130%;
     margin: 0;
     padding: 0;
     background:
@@ -259,8 +259,9 @@ html, body {
   align-items: center;
 }
 
-.table h1 {
+.table1 th {
 background: url("desenfoque.png"), linear-gradient(#D9181D 0%, #4d0000 100%);
+background-size: cover;
 font-family: "Trebuchet MS", Helvetica, sans-serif;
 color: white;
 font-variant: small-caps;
@@ -268,15 +269,15 @@ border-top-right-radius: 10px;
 border-top-left-radius: 10px;
 width: 100%;
 height: auto;
-padding: 10px;
-padding-left: 20px;
-margin-top: -60px;
-margin-left: -30px;
-line-height: 50px;
+padding: 0.7%;
+line-height: 175%;
 position:relative;
+font-size: 200%;
 }
 
-.overlay h1 {background: url("light_effect.png"), linear-gradient(#D9181D 0%, #4d0000 100%);
+.overlay h1 {
+background: url("light_effect.png"), linear-gradient(#D9181D 0%, #4d0000 100%);
+background-size: cover;
 font-family: "Trebuchet MS", Helvetica, sans-serif;
 color: white;
 font-variant: small-caps;
@@ -392,6 +393,7 @@ select option[value=""] {
 
 .btn:hover {
   background-position: right center; /* change the direction of the change here */
+  cursor: pointer;
 }
 
 .btn1 {
@@ -418,4 +420,23 @@ select option[value=""] {
     padding: 5px;
     border: solid;
     border-width: 1px;
+}
+
+tr {
+background: radial-gradient(circle 250px at center, snow, seashell);
+padding:30px;
+text-align: justify;
+text-justify: inter-word;
+font-family: 'Tahoma', sans-serif;
+justify-content: center;
+align-items: center;
+}
+
+td {
+    padding: 0.5%;
+}
+
+table {
+  width: 100%;
+  padding: 3%;
 }
