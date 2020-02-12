@@ -41,7 +41,7 @@ $sql = "DROP TABLE if exists Traits;";
 // sql to create table
 $sql = "CREATE TABLE Traits (
 id INT AUTO_INCREMENT PRIMARY KEY,
-question VARCHAR(1024) NOT NULL UNIQUE
+question VARCHAR(233) NOT NULL UNIQUE
 )";
 
 if ($link->query($sql) === TRUE) {

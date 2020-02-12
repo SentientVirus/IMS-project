@@ -60,7 +60,6 @@ foreach ($result as $row) {
         $rg = mysqli_query($link,"select rg from Correlations
         where disease_id = 1 and trait_id = ".$i." ;");
         $score += $rg;
-
     }
     echo $score; */
 
