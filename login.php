@@ -9,13 +9,12 @@
 	<link rel="stylesheet" href="indexcss.css">
 	<title>Login</title>
 	<div class = "header">
-			<img src="f2fd_logo.png" alt="F2FD"
-				 style="width: 150px; height: 150px; margin-left: 80px" id="logo"/>
+			<img src="f2fd_logo.png" alt="F2FD" id="logo"/>
 			<h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
 	</div>
 </head>
-	<body>
 		<body style = "height: 100%;">
+			<br>
 			<div class="navbar" style = "margin-top:-18px;">
 				<a href="index.php">Home</a>
 				<div class="dropdown">
@@ -46,9 +45,9 @@
 
 				<div>
 <!-- 				 This link needs to be changed to a hompage where you are already logged in -->
-					<button class = "btn btn1" type="submit" style = "width:35%;"
+					<button class = "btn btn1" type="submit" style = "width:150px;"
 					formnovalidate formaction="index.php">Cancel</button>
-					<button class = "btn btn1" type="submit" style = "width:35%;">Login</button>
+					<button class = "btn btn1" type="submit" style = "width:150px;">Login</button>
 				<br />
 				<?php
 					if (isset($_SESSION['error'])) {
@@ -61,5 +60,19 @@
 
 			</div>
 		</form>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
 	</body>
 </html>

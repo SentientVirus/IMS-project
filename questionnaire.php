@@ -20,12 +20,12 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
     <link rel="stylesheet" href="indexcss.css">
     <title>Auto Generated Questions</title>
     <div class = "header">
-        <img src="f2fd_logo.png" alt="F2FD"
-           style="width: 150px; height: 150px; margin-left: 80px" id="logo"/>
+        <img src="f2fd_logo.png" alt="F2FD" id="logo"/>
         <h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
     </div>
   </head>
-  <body style = "height: 250%;">
+  <body>
+    <br>
     <div class="navbar" style = "margin-top:-18px;">
       <a href="index.php">Home</a>
       <div class="dropdown">
