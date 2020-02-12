@@ -1,10 +1,8 @@
+<?php
+	session_start(); 
+?>
 <!DOCTYPE html>
 <html>
-<!-- 
-	<?php
-		session_start(); 
-	?>
- -->
 	<body>
 		<form action="check_login.php" method="POST" style="border:1px solid #ccc">
 			<div>
@@ -27,7 +25,6 @@
     					echo $errormsg;
    		 				unset($_SESSION['error']);
 					}
-
 				?>
 				</div>
 
