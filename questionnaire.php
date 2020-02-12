@@ -61,7 +61,7 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
               $j++;
             }
            ?>
-        <tr><td><input class = "btn btn1" type="submit" value="Submit" name="Submit"
+        <tr><td> </td><td><input class = "btn btn1" type="submit" value="Submit" name="Submit"
           style = "width: 20%;"></td></tr>
       </form>
     </table>
