@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<!-- Get refrech button for captcha -->
+	<script src="https://kit.fontawesome.com/d0932f2606.js" crossorigin="anonymous"></script>
+		
 		<script> 
             // Function to check whether both passwords are equal. 
             function checkPassword(form) { 
@@ -119,15 +122,13 @@
 						required><br><br>
 			
 				<label><b>Confirm password:</b></label>
-				<input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br>
-	
-				<!-- Add a captcha here
-		
-				<label><b>Enter below image text here:</b></label>
-				<input type="text" name="captchacode" >
-				<img src="captcha.php" /> <br><br>
+				<input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br><br>
 				
-				-->
+				<label><b>Enter the text below:</b></label>
+                <input type="text"  placeholder="Enter captchacode" name="captchacode" >
+                <img src="captcha.php" alt="CAPTCHA" class="captcha_image" style="margin-top: 20px"/> 
+                <i class='fas fa-redo refresh-captcha' style="font-size: 36px; margin-bottom: 5px;position: absolute"></i>
+                <br>
 
 				<!-- this line need to be changed to a link with terms of agreement -->
 				<p>By creating an account you agree to our <a href="linktotermsandprivacypage.html" style="color:dodgerblue"> Terms & Privacy</a>.</p>

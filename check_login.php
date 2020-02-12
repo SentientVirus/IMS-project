@@ -20,12 +20,14 @@ $query = "select * from users where email = '".$email."'";
 $rs = mysqli_query($link, $query);
 $numRows = mysqli_num_rows($rs);
 	
-if($numRows  == 1){
+if($numRows  == 1) {
 	$row = mysqli_fetch_assoc($rs);
 	if(password_verify($password, $row['password'])){
 		echo "Password verified";
 		// this needs to be changed to a hompage where you are already logged in
 		header('Location: index.php');
+		$_SESSION['user_id'] = $row['id'];
+		$_SESSION['username'] = $row['username'];
 	}
 	else {
 		$_SESSION['error'] = "Wrong password";
@@ -37,7 +39,8 @@ else {
 		header('Location: login.php');
 }
 
-// later: check if valid email address by sending email 
+// later: check if valid email address by sending email
+// later: login with eather email or username
 
 include 'disconnectDB.php';
 
