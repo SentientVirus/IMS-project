@@ -40,7 +40,7 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
             <div class="dropdown-content">
               <a href="login.php">Login</a>
               <a href="register.php">Register</a></div></div>
-      <a href="#"> Profile</a>
+      <a href="pro.php"> Profile</a>
     </div>
     <table class = "table1" border='0'>
 

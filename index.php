@@ -58,9 +58,9 @@
                     <button class="dropbtn">Login
                     </button>
                     <div class="dropdown-content">
-                      <a href="login.php">Login</a> 
+                      <a href="login.php">Login</a>
                       <a href="register.php">Register</a></div></div>
-              <a href="#"> Profile</a>
+              <a href="pro.php"> Profile</a>
             </div>
             <!-- <div class = "table" style = "margin: auto; border-style: outset;
             width: 500px; height:150px; padding:30px;">-->
