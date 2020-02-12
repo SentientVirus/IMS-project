@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head> 
         <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="indexcss.css">
