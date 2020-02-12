@@ -7,7 +7,7 @@
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="indexcss.css">
-	<title>Auto Generated Questions</title>
+	<title>Login</title>
 	<div class = "header">
 			<img src="f2fd_logo.png" alt="F2FD"
 				 style="width: 150px; height: 150px; margin-left: 80px" id="logo"/>
