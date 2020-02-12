@@ -131,7 +131,7 @@
                 <br>
 
 				<!-- this line need to be changed to a link with terms of agreement -->
-				<p>By creating an account you agree to our <a href="linktotermsandprivacypage.html" style="color:dodgerblue"> Terms & Privacy</a>.</p>
+				<p>By creating an account you agree to our <a href="terms_and_privacy.php" target = "_blank" style="color:dodgerblue"> Terms & Privacy</a>.</p>
 
 				<div>
 					<!-- change this button with CSS so that it looks nice -->
