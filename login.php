@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<!-- 
+<!--
 	<?php
-		session_start(); 
+		session_start();
 	?>
  -->
 	<body>
@@ -26,4 +26,3 @@
 		</form>
 	</body>
 </html>
-
