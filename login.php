@@ -7,7 +7,7 @@
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="indexcss.css">
-	<title>Auto Generated Questions</title>
+	<title>Login</title>
 	<div class = "header">
 			<img src="f2fd_logo.png" alt="F2FD"
 				 style="width: 150px; height: 150px; margin-left: 80px" id="logo"/>
@@ -19,13 +19,13 @@
 			<div class="navbar" style = "margin-top:-18px;">
 				<a href="index.php">Home</a>
 				<div class="dropdown">
-					<button class="dropbtn" style = "background-color: #D9181D;">Tests
+					<button class="dropbtn">Tests
 					</button>
 					<div class="dropdown-content">
 						<a href="questionnaire.php">Depression</a>
 						<a href="#">Illness2</a></div></div>
 						<div class="dropdown">
-							<button class="dropbtn">Login
+							<button class="dropbtn" style = "background-color: #D9181D;">Login
 							</button>
 							<div class="dropdown-content">
 								<a href="login.php">Login</a>
