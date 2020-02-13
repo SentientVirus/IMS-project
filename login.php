@@ -32,7 +32,7 @@
 				<a href="pro.php"> Profile</a>
 			</div>
 		<form class = "table" action="check_login.php" method="POST" style="width:50%; margin:auto;
-		margin-top:10%;">
+		margin-top:10%; display: flex;">
 			<div>
 				<h1>Login</h1>
 				<hr style = "border: 0; height: 1px; background: #333;

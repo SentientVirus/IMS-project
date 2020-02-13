@@ -261,7 +261,7 @@ html, body {
   text-align: justify;
   text-justify: inter-word;
   font-family: 'Tahoma', sans-serif;
-  display: flex;
+  /*display: flex;*/
   justify-content: center;
   align-items: center;
 }

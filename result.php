@@ -17,8 +17,19 @@ foreach ($result as $row) {
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <style>
+    hr {border: 0; height: 1px; background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);}
+    </style>
     <meta charset="utf-8">
-    <title>Your Result!</title>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="indexcss.css">
+    <title>Your result!</title>
+    <div class = "header">
+        <img src="f2fd_logo.png" alt="F2FD" id="logo"/>
+        <h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
+    </div>
   </head>
 
   <style media="screen">
@@ -26,7 +37,28 @@ foreach ($result as $row) {
   </style>
 
   <body>
-    <h2>Hi there!</h2>
+    <br>
+    <div class="navbar" style = "margin-top:-18px;">
+      <a href="index.php">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn" style = "background-color: #D9181D;">Tests
+        </button>
+        <div class="dropdown-content">
+          <a href="questionnaire.php">Depression</a>
+          <a href="#">Illness2</a></div></div>
+          <div class="dropdown">
+            <button class="dropbtn">Login
+            </button>
+            <div class="dropdown-content">
+              <a href="login.php">Login</a>
+              <a href="register.php">Register</a></div></div>
+      <a href="pro.php"> Profile</a>
+    </div>
+    <div class = "table" style = "width: 50%; margin: auto; text-align: center;
+    margin-top: 10%;">
+    <h1>Hi there!</h1>
+    <br>
+    <br>
     <?php
     $score = 0;
     for($i = 1; $i < $length + 1; $i++) {
@@ -38,8 +70,11 @@ foreach ($result as $row) {
         }
       }
     }
-    echo "Your absolute depression-score is:".$score;
-    $rel_score = $score*100/$max_score;
+    echo "Your absolute depression score is: ".$score;
+      $rel_score = $score*100/$max_score;
+      ?>
+      <br>
+      <?php
     if ($rel_score <= 50) {
       echo "<br><hr><br>Your mental health is good as FUCK!!! Enjoy your life and rock on!";
     } else {
@@ -66,7 +101,15 @@ foreach ($result as $row) {
     include("connectDB.php");
 
     ?>
-
+  </div>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
 
 
 
