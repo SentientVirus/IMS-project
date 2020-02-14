@@ -20,12 +20,12 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
     <link rel="stylesheet" href="indexcss.css">
     <title>Auto Generated Questions</title>
     <div class = "header">
-        <img src="f2fd_logo.png" alt="F2FD"
-           style="width: 150px; height: 150px; margin-left: 80px" id="logo"/>
+        <img src="f2fd_logo.png" alt="F2FD" id="logo"/>
         <h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
     </div>
   </head>
   <body>
+    <br>
     <div class="navbar" style = "margin-top:-18px;">
       <a href="index.php">Home</a>
       <div class="dropdown">
@@ -40,7 +40,7 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
             <div class="dropdown-content">
               <a href="login.php">Login</a>
               <a href="register.php">Register</a></div></div>
-      <a href="#"> Profile</a>
+      <a href="pro.php"> Profile</a>
     </div>
     <table class = "table1" border='0'>
 
@@ -61,8 +61,9 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
               $j++;
             }
            ?>
-        <tr><td><input class = "btn btn1" type="submit" value="Submit" name="Submit"
-          style = "width: 20%;"></td></tr>
+        <tr style = "background: none;"><td></td><td align = "right">
+          <input class = "btn btn1" type="submit" value="Submit" name="Submit"
+          style = "border-style: solid; border-width: 1px; width:150px;"></table></td></tr>
       </form>
     </table>
     <div id="radioResults"></div>

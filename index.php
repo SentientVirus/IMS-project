@@ -10,7 +10,7 @@
         <title>F2FD</title>
         <div class = "header">
             <img src="f2fd_logo.png" alt="F2FD"
-               style="width: 150px; height: 150px; margin-left: 80px" id="logo"/>
+               id="logo"/>
             <h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
         </div>
     </head>
@@ -60,7 +60,7 @@
                     <div class="dropdown-content">
                       <a href="login.php">Login</a>
                       <a href="register.php">Register</a></div></div>
-              <a href="#"> Profile</a>
+              <a href="pro.php"> Profile</a>
             </div>
             <!-- <div class = "table" style = "margin: auto; border-style: outset;
             width: 500px; height:150px; padding:30px;">-->
@@ -172,6 +172,9 @@
           }
         }
       </script>
+			<br></br>
+			<br>
+			<br>
     </body>
     <footer>
 
