@@ -71,7 +71,6 @@ foreach ($result as $row) {
     margin-top: 10%;">
     <h1>Hi there!</h1>
     <br>
-    <br>
     <?php
     $score = 0;
     for($i = 1; $i < $length + 1; $i++) {
@@ -83,10 +82,9 @@ foreach ($result as $row) {
         }
       }
     }
-    echo "Your absolute depression score is: ".$score;
+    //echo "Your absolute depression score is: ".$score;
       $rel_score = ($score - $min_score)*100/$span;
       ?>
-      <br>
       <?php
     if ($rel_score <= 50) {
       echo "<br><hr><br>Your mental health is good as FUCK!!! Enjoy your life and rock on!";
@@ -97,7 +95,7 @@ foreach ($result as $row) {
 
     }
 
-    include("connectDB.php");
+    include("disconnectDB.php");
 
     ?>
   </div>

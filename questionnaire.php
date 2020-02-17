@@ -1,14 +1,19 @@
+
 <?php
 include("connectDB.php");
 $result = mysqli_query($link,"select disease_name, Traits.id, question, rg
-from Diseases, Traits, Correlations
-where Diseases.id = disease_id and Traits.id = trait_id and disease_name = 'Depression';");
+                              from Diseases, Traits, Correlations
+                              where Diseases.id = disease_id
+                              and Traits.id = trait_id
+                              and disease_name = 'Depression';");
 
 for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
-     ${"result$i"} = mysqli_query($link,"select disease_name, Traits.id, question, rg
-     from Diseases, Traits, Correlations
-     where Diseases.id = disease_id and Traits.id = trait_id and disease_name = 'Depression'
-     LIMIT ".$i.",1;");
+
+   ${"result$i"} = mysqli_query($link,"select disease_name, Traits.id, question, rg
+   from Diseases, Traits, Correlations
+   where Diseases.id = disease_id and Traits.id = trait_id and disease_name = 'Depression'
+   LIMIT ".$i.",1;");
+
 }
 
 ?>
@@ -45,27 +50,30 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
     <table class = "table1" border='0'>
 
       <form name="Depression" action="result.php" method="post" target="_self">
-        <tr><th style = "width: 60%;">Question</th><th style = "width: 40%;">Please choose:</th></tr>
+        <tr><th style = "width: 60%;">Question</th><th style =
+          "width: 40%;">Please choose:</th></tr>
           <?php
           $j = 1;
-
           for ($i= 0; $i < mysqli_num_rows($result); $i++) {
             $arr = mysqli_fetch_row(${"result$i"});
             ?>
             <tr><td>
             <?php echo $arr[2]; ?>
             </td><td>
-            <input type="radio" value="Yes" name="<?php echo "Q".$j ?>"  checked> Yes <p>
-            <input type="radio" value="No" name="<?php echo "Q".$j ?>" >No<p>
+            <input type="radio" value="Yes"
+                    name="<?php echo "Q".$j ?>"  checked> Yes <p>
+            <input type="radio" value="No"
+                    name="<?php echo "Q".$j ?>" >No<p>
             </td></tr>
             <?php
             $j++;
           }
-
           ?>
         <tr style = "background: none;"><td></td><td align = "right">
-          <input class = "btn btn1" type="submit" value="Submit" name="Submit"
-          style = "border-style: solid; border-width: 1px; width:150px;"></table></td></tr>
+          <input class = "btn btn1" type="submit"
+                  value="Submit" name="Submit"
+          style = "border-style: solid; border-width: 1px;
+                  width:150px;"></table></td></tr>
       </form>
     </table>
     <div id="radioResults"></div>
