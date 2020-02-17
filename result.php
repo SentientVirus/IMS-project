@@ -83,6 +83,7 @@ foreach ($result as $row) {
       }
     }
     
+
     //echo "Your absolute depression score is: ".$score;
       $rel_score = ($score - $min_score)*100/$span;
       ?>
