@@ -29,7 +29,7 @@
 							<div class="dropdown-content">
 								<a href="login.php">Login</a>
 								<a href="register.php">Register</a></div></div>
-				<a href="pro.php"> Profile</a>
+				<a href="profile.php"> Profile</a>
 			</div>
 		<form class = "table" action="check_login.php" method="POST" style="width:50%; margin:auto;
 		margin-top:10%; display: flex;">

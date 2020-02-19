@@ -3,9 +3,22 @@ include("connectDB.php");
 //1. Receive the result from questionnaire.php
 //1. Calculate the result from the questionnaire.php
 //2. HTML page showing the results
-$result = $link -> query("select disease_name, Traits.id, question, rg
+$result = mysqli_query($link,"select disease_name, Traits.id, question, rg
 from Diseases, Traits, Correlations
 where Diseases.id = disease_id and Traits.id = trait_id and disease_name = 'Depression';");
+$min_score = 0;
+$max_score = 0;
+foreach ($result as $row) {
+  if ($row["rg"] >= 0) {
+    $max_score += $row["rg"];
+  }
+  else {
+    $min_score += $row["rg"];
+  }
+}
+$span = $max_score - $min_score;
+
+
 $length = mysqli_num_rows($result);
 $max_score = 0;
 foreach ($result as $row) {
@@ -58,7 +71,6 @@ foreach ($result as $row) {
     margin-top: 10%;">
     <h1>Hi there!</h1>
     <br>
-    <br>
     <?php
     $score = 0;
     for($i = 1; $i < $length + 1; $i++) {
@@ -70,10 +82,11 @@ foreach ($result as $row) {
         }
       }
     }
-    echo "Your absolute depression score is: ".$score;
-      $rel_score = $score*100/$max_score;
+    
+
+    //echo "Your absolute depression score is: ".$score;
+      $rel_score = ($score - $min_score)*100/$span;
       ?>
-      <br>
       <?php
     if ($rel_score <= 50) {
       echo "<br><hr><br>Your mental health is good as FUCK!!! Enjoy your life and rock on!";
@@ -84,21 +97,7 @@ foreach ($result as $row) {
 
     }
 
-
-
-
-
-    /*
-    $score = 0;
-    for($i = 1; $i < $length + 1; $i++) {
-      if ($_POST["Q".$i] == "Yes"){
-        $rg = mysqli_query($link,"select rg from Correlations
-        where disease_id = 1 and trait_id = ".$i." ;");
-        $score += $rg;
-    }
-    echo $score; */
-
-    include("connectDB.php");
+    include("disconnectDB.php");
 
     ?>
   </div>
