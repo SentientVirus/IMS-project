@@ -39,7 +39,7 @@
 				background-image: linear-gradient(to right, #ccc, #333, #ccc);">
 				<br>
 				<label><b>Email:</b></label>
-				<input type="text" placeholder="Enter Email" name="email" required><br><br>
+				<input type="email" placeholder="Enter Email" name="email" required><br><br>
 				<label><b>Password:</b></label>
 				<input type="password" placeholder="Enter password" name="password" required><br><br>
 
@@ -49,6 +49,7 @@
 					formnovalidate formaction="index.php">Cancel</button>
 					<button class = "btn btn1" type="submit" style = "width:150px;">Login</button>
 				<br />
+				<a href="register.php" target = "_blank" style="color:dodgerblue"> Not registerd? Register here</a>.</p>
 				<?php
 					if (isset($_SESSION['error'])) {
    					 	$errormsg = $_SESSION['error'];
