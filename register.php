@@ -112,13 +112,6 @@
 
     <body>
 			<div id="main" style = "margin:auto;">
-					<?php
-							if (isset($_SESSION['error']))
-							{ $errormsg = $_SESSION['error'];
-							 unset($_SESSION['error']);
-							 echo '<p <strong> $errormsg </strong><br/></p>';
-							}
-					?>
 					<br>
 					<div class="navbar" style = "margin-top:-18px;">
 						<a href="index.php">Home</a>
