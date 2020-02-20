@@ -1,8 +1,5 @@
 <?php
 session_start();
- ?>
-<?php
-	session_start();
 include("connectDB.php");
 $result = mysqli_query($link,"select disease_name, Traits.id, question, rg
                               from Diseases, Traits, Correlations
