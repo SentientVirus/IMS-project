@@ -8,6 +8,12 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="indexcss.css">
 		<title>F2FD</title>
+		<?php
+				//This redirects to the index if you try to register while already logged in
+				if (isset($_SESSION['user_id'])){
+					header("Location: index.php");
+				}
+		 ?>
 		<div class = "header">
 				<img src="f2fd_logo.png" alt="F2FD"
 					 id="logo"/>
@@ -116,7 +122,7 @@
 							if (isset($_SESSION['error']))
 							{ $errormsg = $_SESSION['error'];
 							 unset($_SESSION['error']);
-							 echo '<p <strong> $errormsg </strong><br/></p>';
+							 echo '<p> <strong> $errormsg </strong><br/></p>';
 							}
 					?>
 					<br>
