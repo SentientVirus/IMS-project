@@ -66,9 +66,9 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
             <tr><td>
             <?php echo $arr[2]; ?>
             </td><td>
-            <input type="radio" value="Yes"
+            <input class= "option-input radio" type="radio" value="Yes"
                     name="<?php echo "Q".$j ?>"  checked> Yes <p>
-            <input type="radio" value="No"
+            <input class= "option-input2 radio" type="radio" value="No"
                     name="<?php echo "Q".$j ?>" >No<p>
             </td></tr>
             <?php
