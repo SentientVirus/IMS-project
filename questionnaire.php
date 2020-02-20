@@ -62,7 +62,7 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
           for ($i= 0; $i < mysqli_num_rows($result); $i++) {
             $arr = mysqli_fetch_row(${"result$i"});
             ?>
-            <tr><td>
+            <tr><td style = "padding: 2.5%;">
             <?php echo $arr[2]; ?>
             </td><td>
             <input class= "option-input radio" type="radio" value="Yes"
