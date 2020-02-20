@@ -19,8 +19,8 @@
 					 id="logo"/>
 				<h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
 		</div>
-	<!-- Get refrech button for captcha -->
-	<script src="https://kit.fontawesome.com/d0932f2606.js" crossorigin="anonymous"></script>
+		<!-- Get refrech button for captcha -->
+		<script src="https://kit.fontawesome.com/d0932f2606.js" crossorigin="anonymous"></script>
 
 		<script>
             // Function to check whether both passwords are equal.
@@ -118,13 +118,6 @@
 
     <body>
 			<div id="main" style = "margin:auto;">
-					<?php
-							if (isset($_SESSION['error']))
-							{ $errormsg = $_SESSION['error'];
-							 unset($_SESSION['error']);
-							 echo '<p> <strong> $errormsg </strong><br/></p>';
-							}
-					?>
 					<br>
 					<div class="navbar" style = "margin-top:-18px;">
 						<a href="index.php">Home</a>

@@ -10,7 +10,6 @@ session_start();
   <h2>PROFILE PAGE:</h2><br /></br >
 
   <?php
-      //This should be removed - only for testing
       if (isset($_SESSION['user_id'])){
         include("connectDB.php");
         //mysql_select_db("users") or die("could not able to connect");
