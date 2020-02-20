@@ -25,7 +25,7 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 		// the email is valid
 	}
 	else {
-		$_SESSION['error'] = "$email is not a valid email address";
+		$_SESSION['error'] = "<p style = 'color:red;'><b>$email is not a valid email address</b></p>";
 		header('Location: register.php');
 	}
 
