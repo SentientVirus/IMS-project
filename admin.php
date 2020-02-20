@@ -17,10 +17,10 @@
     <form action="insert_data_admin.php" target="_self" method="post">
 
       Please enter the disease's name:<br>
-      <input type="text" id="D_name" name="D_name"><br><br>
+      <input type="text" id="D_name" name="D_name" placeholder="Disease's name"><br><br>
 
       Please enter the disease's description:<br>
-      <input type="text" id="D_desc" name="D_desc"><br><br>
+      <input type="text" id="D_desc" name="D_desc" placeholder="Short Description"><br><br>
 
       <input type="submit" value="Submit">
     </form>
@@ -31,21 +31,30 @@
   <br>
 
   <div class="">
-    <form action="insert_data_admin.php" target="_self">
+    <form action="insert_data_admin.php" target="_self" autocomplete="off">
 
       Please enter the question sentence:<br>
-      <input type="text" id="T_name" name="T_name"><br><br>
+      <input type="text" id="T_name" name="T_name" placeholder="Human friendly, plz"><br><br>
 
-      Please choose the disease's name:<br>
-      <input type="text" id="C_D_name" name="C_D_name"><br><br>
+      <div class="autocomplete" style="width:300px;">
+        Please choose the disease's name:<br>
+        <input type="text" id="C_D_name" name="C_D_name" placeholder="Type a bit and choose"><br><br>
+      </div>
+
 
       Please enter the correlation between those two (floating value like 0.45512):<br>
-      <input type="text" id="C_rg" name="C_rg"><br><br>
+      <input type="text" id="C_rg" name="C_rg" placeholder="A floating number < 1"><br><br>
 
       <input type="submit" value="Submit">
 
 
     </form>
+
+    <script type="text/javascript">
+      var diseases = ["Dpression","Heart-Disease","Diabetes"];
+    </script>
+
+
 
   </div>
 
