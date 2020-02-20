@@ -1,4 +1,7 @@
 <?php
+session_start();
+ ?>
+<?php
 include("connectDB.php");
 //1. Receive the result from questionnaire.php
 //1. Calculate the result from the questionnaire.php
@@ -59,12 +62,17 @@ foreach ($result as $row) {
         <div class="dropdown-content">
           <a href="questionnaire.php">Depression</a>
           <a href="#">Illness2</a></div></div>
-          <div class="dropdown">
-            <button class="dropbtn">Login
-            </button>
-            <div class="dropdown-content">
-              <a href="login.php">Login</a>
-              <a href="register.php">Register</a></div></div>
+          <?php
+          if (isset($_SESSION['user_id'])){
+          echo '<div class="dropdown">
+          <a href="logout.php" class="dropbtn" onclick = "session_destroy();">Logout</a></div>';
+          }
+          else {
+          echo '<div class="dropdown"><button class="dropbtn">Login</button>
+          <div class="dropdown-content">
+            <a href="login.php">Login</a>
+            <a href="register.php">Register</a></div></div>';}
+            ?>
       <a href="pro.php"> Profile</a>
     </div>
     <div class = "table" style = "width: 50%; margin: auto; text-align: center;
@@ -82,7 +90,7 @@ foreach ($result as $row) {
         }
       }
     }
-    
+
 
     //echo "Your absolute depression score is: ".$score;
       $rel_score = ($score - $min_score)*100/$span;
