@@ -16,7 +16,7 @@ session_start();
         $result = mysqli_query($link,"select * from users WHERE id = '".$_SESSION["user_id"]."'");
       }
       else {
-        $_SESSION['error'] = "You need to log in in order to see this page!";
+        $_SESSION['error'] = "<p style = 'color:red;'><b>You need to log in in order to see this page!</b></p>";
         header("Location: login.php");
           //Add session error (check if it exists in the login)
           //Redirect to login
