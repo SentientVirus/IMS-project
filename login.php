@@ -55,8 +55,8 @@
 					formnovalidate formaction="index.php">Cancel</button>
 					<button class = "btn btn1" type="submit" style = "width:150px;">Login</button>
 				<br />
-				
-				<p><a href="register.php" style="color:dodgerblue"> Not registerd? Register here</a></p>
+
+				<p>Not registered? Register <a href="register.php" style="color:dodgerblue">here</a></p>
 				<?php
 					if (isset($_SESSION['error'])) {
    					 	$errormsg = $_SESSION['error'];
