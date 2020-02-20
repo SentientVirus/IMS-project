@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+ ?>
 <?php
 include("connectDB.php");
 $result = mysqli_query($link,"select disease_name, Traits.id, question, rg
