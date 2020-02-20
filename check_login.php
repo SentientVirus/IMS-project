@@ -45,6 +45,7 @@ else {
 // Login with either email or username
 // add a link to register on the loginpage
 // HHTTPS if hae time 
+// make submit button 
 
 include 'disconnectDB.php';
 

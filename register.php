@@ -13,8 +13,8 @@
 					 id="logo"/>
 				<h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
 		</div>
-	<!-- Get refrech button for captcha -->
-	<script src="https://kit.fontawesome.com/d0932f2606.js" crossorigin="anonymous"></script>
+		<!-- Get refrech button for captcha -->
+		<script src="https://kit.fontawesome.com/d0932f2606.js" crossorigin="anonymous"></script>
 
 		<script>
             // Function to check whether both passwords are equal.

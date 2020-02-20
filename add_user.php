@@ -40,7 +40,7 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 	else {
 		// Hash password 
 		$options = array("cost"=>4);
-		$hashPassword = password_hash($password,PASSWORD_BCRYPT,$options);
+		$hashPassword = password_hash($password, );
 
 		// Add user 
 		$query = "INSERT INTO Users (username, email, password) VALUES ('$username', '$email', '$hashPassword')";
