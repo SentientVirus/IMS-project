@@ -17,7 +17,7 @@ $password = mysqli_real_escape_string($link, $password);
 $options = array("cost"=>4);
 $hashPassword = password_hash($password,PASSWORD_BCRYPT,$options);
 
-$query = "select * from users where email = '".$email_username."' or username = '".$email_username."' ";
+$query = "select * from Users where email = '".$email_username."' or username = '".$email_username."' ";
 $rs = mysqli_query($link, $query);
 $numRows = mysqli_num_rows($rs);
 
