@@ -7,8 +7,7 @@ session_start();
    <title>F2FD:</title>
 </head>
 <body>
-  <h2>PROFILE PAGE:</h2><br /></br >
-
+  <h2>PERSONAL INFORMATION:</h2><br /></br >
   <?php
       if (isset($_SESSION['user_id'])){
         include("connectDB.php");
@@ -36,10 +35,44 @@ session_start();
    <div>
      <?php
       echo("Username: "); echo($username);
-      echo("<br>email: "); echo($email);
-      //echo("<br>password: "); echo($password);
       ?>
-       </table>
+      <label><br>Change Username:</label>
+      <input type="Username" placeholder="New Username" name="Username" id="Username" required><br></br>
+      <br><button type="button" onclick="alert('Your details are updated')">Submit</button>
+      <div>
+        <?php
+        if(isset( $_SESSION['submit'] )){
+          $SQL = "INSERT INTO Users (username) VALUES ($username)";
+          $result = mysqli_query($SQL);
+        }?>
+        <?php
+      echo("<br>Score: "); echo($Score);
+      ?>
+    </div>
+    <?php
+      echo("<br>email: "); echo($email);
+      ?>
+      <label><br>Change Email:</label>
+      <input type="email" placeholder="New email" name="email" id="email" required><br></br>
+      <br><button type="button" onclick="alert('Your details are updated')">Submit</button>
+      <div>
+      <?php
+      if(isset( $_SESSION['submit'] )){
+        $SQL = "INSERT INTO Users (email) VALUES ($email)";
+        $result = mysqli_query($SQL);
+      }?>
+     <!-- Password field -->
+  <br>Old Password:<br><input type="password" value="Type password" id="myInput"></br><!-- An element to toggle between password visibility -->
+  <br>New Password:<br><input type="password" value="Type password" id="myInput"></br><!-- An element to toggle between password visibility -->
+  <input type="checkbox" onclick="myFunction()"> show password</br>
+
+  <br><button type="button" onclick="alert('Your details are updated')">Submit</button>
+  <?php
+      if(isset( $_SESSION['submit'] )){
+        $SQL = "INSERT INTO Users (password) VALUES ($password)";
+             $result = mysqli_query($SQL);
+        }?>
+</div>
      </form>
 </body>
 </html>
