@@ -8,6 +8,12 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="indexcss.css">
 	<title>Login</title>
+	<?php
+			//This redirects to the index if you try to login while already logged in
+			if (isset($_SESSION['user_id'])){
+				header("Location: index.php");
+			}
+	 ?>
 	<div class = "header">
 			<img src="f2fd_logo.png" alt="F2FD" id="logo"/>
 			<h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
@@ -38,8 +44,8 @@
 				<hr style = "border: 0; height: 1px; background: #333;
 				background-image: linear-gradient(to right, #ccc, #333, #ccc);">
 				<br>
-				<label><b>Email:</b></label>
-				<input type="email" placeholder="Enter Email" name="email" required><br><br>
+				<label><b>Email or Username:</b></label>
+				<input type="text" placeholder="Enter email or username" name="email/username" required><br><br>
 				<label><b>Password:</b></label>
 				<input type="password" placeholder="Enter password" name="password" required><br><br>
 
@@ -49,7 +55,8 @@
 					formnovalidate formaction="index.php">Cancel</button>
 					<button class = "btn btn1" type="submit" style = "width:150px;">Login</button>
 				<br />
-				<a href="register.php" style="color:dodgerblue"> Not registerd? Register here</a></p>
+
+				<p>Not registered? Register <a href="register.php" style="color:dodgerblue">here</a></p>
 				<?php
 					if (isset($_SESSION['error'])) {
    					 	$errormsg = $_SESSION['error'];

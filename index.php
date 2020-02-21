@@ -42,7 +42,7 @@
                 if (isset($_SESSION['error']))
                 { $errormsg = $_SESSION['error'];
                  unset($_SESSION['error']);
-                 echo '<p <strong> $errormsg </strong><br/></p>';
+                 echo '<p><strong> $errormsg </strong><br/></p>';
                 }
             ?>
             <br>
@@ -54,12 +54,17 @@
                 <div class="dropdown-content">
                   <a href="questionnaire.php">Depression</a>
                   <a href="#">Illness2</a></div></div>
-                  <div class="dropdown">
-                    <button class="dropbtn">Login
-                    </button>
-                    <div class="dropdown-content">
-                      <a href="login.php">Login</a>
-                      <a href="register.php">Register</a></div></div>
+									<?php
+									if (isset($_SESSION['user_id'])){
+									echo '<div class="dropdown">
+									<a href="logout.php" class="dropbtn" onclick = "session_destroy();">Logout</a></div>';
+									}
+									else {
+									echo '<div class="dropdown"><button class="dropbtn">Login</button>
+									<div class="dropdown-content">
+									  <a href="login.php">Login</a>
+									  <a href="register.php">Register</a></div></div>';}
+									  ?>
               <a href="profile.php"> Profile</a>
             </div>
             <!-- <div class = "table" style = "margin: auto; border-style: outset;

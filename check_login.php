@@ -5,21 +5,23 @@
 
 include 'connectDB.php';
 
-$email = $_POST['email'];
+$email_username = $_POST['email/username'];
+
 $password = $_POST['password'];
 
 // To avoid SQL Injection
 $email = mysqli_real_escape_string($link, $email);
 $password = mysqli_real_escape_string($link, $password);
 
-//hash password 
+//hash password
 $options = array("cost"=>4);
 $hashPassword = password_hash($password,PASSWORD_BCRYPT,$options);
 
-$query = "select * from users where email = '".$email."'";
+$query = "select * from users where email = '".$email_username."' or username = '".$email_username."' ";
 $rs = mysqli_query($link, $query);
 $numRows = mysqli_num_rows($rs);
-	
+
+
 if($numRows  == 1) {
 	$row = mysqli_fetch_assoc($rs);
 	if(password_verify($password, $row['password'])){
@@ -30,22 +32,21 @@ if($numRows  == 1) {
 		$_SESSION['username'] = $row['username'];
 	}
 	else {
-		$_SESSION['error'] = "Wrong password";
+		$_SESSION['error'] = "<p style = 'color:red;'><b>Wrong password</b></p>";
 		header('Location: login.php');
 	}
 }
 else {
-		$_SESSION['error'] = "No user found";
+		$_SESSION['error'] = "<p style = 'color:red;'><b>No user found</b></p>";
 		header('Location: login.php');
 }
 
-// later: check if valid email address by sending email
-// later: login with eather email or username
+// Send confirmation email when register
+// Login with either email or username
+// add a link to register on the loginpage
+// HHTTPS if hae time
+// make submit button
 
 include 'disconnectDB.php';
 
 ?>
-
-
-
-

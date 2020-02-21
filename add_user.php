@@ -5,15 +5,15 @@
 
 if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_text']) {
 
-	include 'connectDB.php';				
+	include 'connectDB.php';
 
-	// Get values from user input in html register.php 
+	// Get values from user input in html register.php
 	$username = $_POST["username"];
 	$email = $_POST["email"];
 	$password = $_POST["password"];
 
 
-	// To avoid SQL Injection 
+	// To avoid SQL Injection
 	$username = mysqli_real_escape_string($link, $username);
 	$email = mysqli_real_escape_string($link, $email);
 	$password = mysqli_real_escape_string($link, $password);
@@ -21,28 +21,28 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 	// This will remove all the illegal characters from the email.
 	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 	// Then we validate the email.
-	if (filter_var($email, FILTER_VALIDATE_EMAIL)) { 
+	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		// the email is valid
 	}
-	else { 
-		$_SESSION['error'] = "$email is not a valid email address";
+	else {
+		$_SESSION['error'] = "<p style = 'color:red;'><b>$email is not a valid email address</b></p>";
 		header('Location: register.php');
 	}
-	
-	// Check that email doesn't already exist 
+
+	// Check that email doesn't already exist
 	$query = "select * from users where email = '".$email."'";
 	$rs = mysqli_query($link, $query);
 	$numRows = mysqli_num_rows($rs);
 	if(!$numRows == 0){
-		$_SESSION['error'] = "This email already exist, try another or ask for a new password if you have forgot your old.";
+		$_SESSION['error'] = "<p style = 'color:red;'><b>This email already exist, try another or ask for a new password if you have forgot your old.</b></p>";
 		header('Location: register.php');
 		}
 	else {
-		// Hash password 
+		// Hash password
 		$options = array("cost"=>4);
-		$hashPassword = password_hash($password,PASSWORD_BCRYPT,$options);
+		$hashPassword = password_hash($password, PASSWORD_BCRYPT,$options);
 
-		// Add user 
+		// Add user
 		$query = "INSERT INTO Users (username, email, password) VALUES ('$username', '$email', '$hashPassword')";
 		mysqli_query($link, $query);
 
@@ -52,11 +52,11 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 	}
 }
 else {
-	$_SESSION['error']= "The captcha code is wrong. Try again.";
-	header('Location: register.php'); 
+	$_SESSION['error']= "<p style = 'color:red;'><b>The captcha code is wrong. Try again.</b></p>";
+	header('Location: register.php');
 }
 
-// Can also write query like this 
+// Can also write query like this
 // $query = sprintf("INSERT INTO Users (username, email, password) VALUES ('%s', '%s', '%s')",
 // 				mysql_real_escape_string($link, $username),
 // 				mysql_real_escape_string($link, $email),

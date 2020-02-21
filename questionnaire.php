@@ -1,5 +1,5 @@
-
 <?php
+session_start();
 include("connectDB.php");
 $result = mysqli_query($link,"select disease_name, Traits.id, question, rg
                               from Diseases, Traits, Correlations
@@ -39,12 +39,17 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
         <div class="dropdown-content">
           <a href="questionnaire.php">Depression</a>
           <a href="#">Illness2</a></div></div>
-          <div class="dropdown">
-            <button class="dropbtn">Login
-            </button>
-            <div class="dropdown-content">
-              <a href="login.php">Login</a>
-              <a href="register.php">Register</a></div></div>
+          <?php
+          if (isset($_SESSION['user_id'])){
+          echo '<div class="dropdown">
+          <a href="logout.php" class="dropbtn" onclick = "session_destroy();">Logout</a></div>';
+          }
+          else {
+          echo '<div class="dropdown"><button class="dropbtn">Login</button>
+          <div class="dropdown-content">
+            <a href="login.php">Login</a>
+            <a href="register.php">Register</a></div></div>';}
+          ?>
       <a href="profile.php"> Profile</a>
     </div>
     <table class = "table1" border='0'>
@@ -57,12 +62,12 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
           for ($i= 0; $i < mysqli_num_rows($result); $i++) {
             $arr = mysqli_fetch_row(${"result$i"});
             ?>
-            <tr><td>
+            <tr><td style = "padding: 2.5%;">
             <?php echo $arr[2]; ?>
             </td><td>
-            <input type="radio" value="Yes"
+            <input class= "option-input radio" type="radio" value="Yes"
                     name="<?php echo "Q".$j ?>"  checked> Yes <p>
-            <input type="radio" value="No"
+            <input class= "option-input2 radio" type="radio" value="No"
                     name="<?php echo "Q".$j ?>" >No<p>
             </td></tr>
             <?php
