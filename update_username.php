@@ -4,23 +4,17 @@
 	<?php
 	include 'connectDB.php';
 	// Get values from user input in html register.php
-	$new_password = $_POST["new_password"];
+	$new_username = $_POST["new_username"];
 	$old_password = $_POST["old_password"];
 	$id = $_SESSION["user_id"];
 
 	// To avoid SQL Injection
 	$old_password = mysqli_real_escape_string($link, $old_password);
-
-	//hash password
-	$options = array("cost"=>4);
-	$hashPassword = password_hash($old_password,PASSWORD_BCRYPT,$options);
+  $new_username = mysqli_real_escape_string($link, $new_username);
 
 	$query = "select * from users where id = '".$id."'";
 	$rs = mysqli_query($link, $query);
 	$numRows = mysqli_num_rows($rs);
-
-	$new_password = mysqli_real_escape_string($link, $new_password);
-	$hashNewPassword = password_hash($new_password,PASSWORD_BCRYPT,$options);
 
 
 	if($numRows  == 1) {
@@ -29,18 +23,30 @@
 			echo "Password verified";
 			// this needs to be changed to a hompage where you are already logged in
 			//header('Location: index.php');
+      $query = "select * from users where username = '".$new_username."'";
+      $rs = mysqli_query($link, $query);
+      $numRows = mysqli_num_rows($rs);
+      if(!$numRows == 0){
+      	$_SESSION['error1'] = "<p style = 'color:red;'><b>This username already exist, try another.</b></p>";
+      	header('Location: ');
+      	}
+      else {
+      	// Hash password
 			$query = "UPDATE users
-			SET password = '$hashNewPassword'
+			SET username = '$new_username'
 			WHERE id = '$id'";
 
 			mysqli_query($link, $query);
 		}
+    }
 		else {
 			$_SESSION['error1'] = "<p style = 'color:red;'><b>Wrong password</b></p>";
+      header('Location: profile.php');
 		}
-	}
+  }
+
 		include 'disconnectDB.php';
-		header('Location: profile.php');
+    header('Location: profile.php');
 
 		//header('Location: login.php');
 

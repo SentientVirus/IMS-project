@@ -42,7 +42,7 @@ session_start();
         $result = mysqli_query($link,"select * from users WHERE id = '".$_SESSION["user_id"]."'");
       }
       else {
-        $_SESSION['error'] = "You need to log in in order to see this page!";
+        $_SESSION['error'] = "<p style = 'color:red;'><b>You need to log in in order to see this page!</b></p>";
         header("Location: login.php");
           //Add session error (check if it exists in the login)
           //Redirect to login
@@ -138,46 +138,45 @@ session_start();
           <br />
 
     <button class = "btn btn1" type="submit" style = "display:inline; width: 150px;">Save changes</button></form>
-    <form action="add_user1.php" method="POST" >
+    <form action="update_username.php" method="POST" >
        <h1>Change username</h1>
        <p>Please fill in the following fields:</p>
        <hr style = "border: 0; height: 1px; background: #333;
        background-image: linear-gradient(to right, #ccc, #333, #ccc);">
 
        <label><b>Password:</b></label>
-       <input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br>
+       <input type="password" placeholder="Enter password" name="old_password" id="old_password" required><br>
        <label><b>User name:</b></label>
-       <input type="text" placeholder="Enter username" name="username" id="username" required><br><br>
+       <input type="text" placeholder="Enter username" name="new_username" id="new_username" required><br><br>
 
-     <button class = "btn btn1" type="submit" style = "display:inline; width: 150px;">Register </button></form>
-     <form action="add_user.php" method="POST" >
+     <button class = "btn btn1" type="submit" style = "display:inline; width: 150px;">Save changes</button></form>
+     <form action="update_email.php" method="POST" >
         <h1>Change email</h1>
         <p>Please fill in the following fields:</p>
         <hr style = "border: 0; height: 1px; background: #333;
         background-image: linear-gradient(to right, #ccc, #333, #ccc);">
 
         <label><b>Password:</b></label>
-        <input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br>
+        <input type="password" placeholder="Enter password" name="old_password" id="old_password" required><br>
         <label><b>Email:</b></label>
-        <input type="email" placeholder="Enter Email" name="email" id="email" required><br><br>
+        <input type="email" placeholder="Enter Email" name="new_email" id="new_email" required><br><br>
 
-      <button class = "btn btn1" type="submit" style = "display:inline; width: 150px;">Register </button></form>
+      <button class = "btn btn1" type="submit" style = "display:inline; width: 150px;">Save changes</button></form>
 
       <!-- this line need to be changed to a link with terms of agreement -->
       <p>By creating an account you agree to our <a href="terms_and_privacy.php" target = "_blank" style="color:dodgerblue"> Terms & Privacy</a>.</p>
 
       <div>
+        <?php
+					if (isset($_SESSION['error1'])) {
+   					 	$errormsg = $_SESSION['error1'];
+    					echo $errormsg;
+   		 				unset($_SESSION['error1']);
+					}
 
+				?>
         <!-- Later: "please varify your email"  -->
       <br />
-      <?php
-        if (isset($_SESSION['error'])) {
-            $errormsg = $_SESSION['error'];
-            echo $errormsg;
-            unset($_SESSION['error']);
-        }
-
-      ?>
       </div>
 </body>
 </html>
