@@ -105,6 +105,16 @@ foreach ($result as $row) {
 
     }
 
+    if (isset($_SESSION['user_id'])) {
+      // make the home page post to this page with $_POST["disease_chosen"]
+      $query = "INSERT INTO Results (user_id, disease_id, result) VALUES ({$_SESSION['user_id']}, 1,{$rel_score})";
+      $save_result = mysqli_query($link, $query);
+
+    }
+
+
+
+
     include("disconnectDB.php");
 
     ?>
