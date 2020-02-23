@@ -72,7 +72,7 @@ session_start();
     ?></a></div>
   </div>
   <div class = "big_table" style = "text-align:center; margin: auto; width: 80%;">
-  <h1>PERSONAL INFORMATION:</h1><br /></br >
+  <h1 style = "text-transform: uppercase;"><?php echo "$user_name's profile:"?></h1><br /><br/>
   <?php
       if (isset($_SESSION['user_id'])){
         include("connectDB.php");
@@ -97,6 +97,13 @@ session_start();
       //  $password = $row["password"];
       }
    ?>
+   <div class = "table" style = "margin:auto; width: 50%;">
+     <h1>Personal information:</h1>
+     <?php
+     echo "<label><b>Username:</b></label> $username<br />";
+     echo "<br /><label><b>Email:</b></label> $email"; ?></div>
+     <br />
+     <br />
    <form class = "table" style = "margin:auto; width: 50%;"
    onSubmit = "return checkPassword(this)" action="update_password.php" method="POST" >
       <h1>Change password</h1>
