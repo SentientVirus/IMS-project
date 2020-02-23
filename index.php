@@ -142,7 +142,7 @@
             <br>
             <div id = "block_container">
             <div id = "bloc1" class = "table" style = "margin-right: 10px; width: 500px;">
-              <p><a href= "terms_privacy.php" target="_blank">Terms & Privacy</a></p></div>
+              <p><a href= "terms_and_privacy.php" target="_blank">Terms & Privacy</a></p></div>
             <div id = "bloc2" class = "table" style = "margin-left: 10px; width: 500px;">
               <p>Data from <a href= "https://www.ukbiobank.ac.uk/" target="_blank">
                 UK Biobank</a> and cover images from <a href = "https://pixabay.com/" target="_blank">
