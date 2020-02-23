@@ -66,12 +66,19 @@
 									  <a href="register.php">Register</a></div></div>';}
 									  ?>
               <a href="profile.php"> Profile</a>
+							<div style = "float: right; margin-left: 10%;">
+							<a href="profile.php" style = "color: white;"><?php
+									if (isset($_SESSION['username']))
+									{$user_name = $_SESSION['username'];
+										echo "Welcome, $user_name";
+									}
+							?></a></div>
             </div>
             <!-- <div class = "table" style = "margin: auto; border-style: outset;
             width: 500px; height:150px; padding:30px;">-->
             <div id = "block_container" style = "margin-top: 50px;">
             <div id = "bloc1" class = "container" style = "margin-right: 10px; width: 600px;">
-              <img src="overlay.png" alt="Avatar" class="image">
+              <img src="overlay.png" class="image">
               <div class="overlay" style = "margin-top: 60px;">
                 <h1 style = "margin-bottom:-20px; margin-left:0px;width: 95%;">About</h1>
                 <div class = "table" style = "height:392px;">
@@ -100,7 +107,7 @@
               </div>
             </div>
             <div id = "bloc2" class = "container" style = "margin-left: 10px; width: 600px;">
-              <img src="overlay2.png" alt="Avatar" class="image">
+              <img src="overlay2.png" class="image">
               <div class="overlay" style = "margin-top: 60px;">
                 <h1 style = "margin-bottom:-20px; margin-left:0px; width: 95%;">
                 Why take our test</h1>

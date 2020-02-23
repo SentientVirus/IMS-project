@@ -63,6 +63,13 @@ session_start();
           <a href="register.php">Register</a></div></div>';}
           ?>
     <a class="active" href="profile.php"> Profile</a>
+    <div style = "float: right; margin-left: 10%;">
+    <a href="profile.php" style = "color: white;"><?php
+        if (isset($_SESSION['username']))
+        {$user_name = $_SESSION['username'];
+          echo "Welcome, $user_name";
+        }
+    ?></a></div>
   </div>
   <div class = "big_table" style = "text-align:center; margin: auto; width: 80%;">
   <h1>PERSONAL INFORMATION:</h1><br /></br >

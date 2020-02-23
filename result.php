@@ -73,7 +73,14 @@ foreach ($result as $row) {
             <a href="login.php">Login</a>
             <a href="register.php">Register</a></div></div>';}
             ?>
-      <a href="pro.php"> Profile</a>
+      <a href="profile.php"> Profile</a>
+      <div style = "float: right; margin-left: 10%;">
+      <a href="profile.php" style = "color: white;"><?php
+          if (isset($_SESSION['username']))
+          {$user_name = $_SESSION['username'];
+            echo "Welcome, $user_name";
+          }
+      ?></a></div>
     </div>
     <div class = "table" style = "width: 50%; margin: auto; text-align: center;
     margin-top: 10%;">
