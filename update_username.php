@@ -27,7 +27,7 @@
       $rs = mysqli_query($link, $query);
       $numRows = mysqli_num_rows($rs);
       if(!$numRows == 0){
-      	$_SESSION['error1'] = "<p style = 'color:red;'><b>This username already exist, try another.</b></p>";
+      	$_SESSION['error2'] = "<p style = 'color:red;'><b>This username already exist, try another.</b></p>";
       	header('Location: ');
       	}
       else {
@@ -40,7 +40,7 @@
 		}
     }
 		else {
-			$_SESSION['error1'] = "<p style = 'color:red;'><b>Wrong password</b></p>";
+			$_SESSION['error2'] = "<p style = 'color:red;'><b>Wrong password</b></p>";
       header('Location: profile.php');
 		}
   }
