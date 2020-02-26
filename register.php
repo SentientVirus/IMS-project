@@ -232,12 +232,12 @@
 					}
 				</script>
 				<br />
-				
+
 				<label><b>Confirm password:</b></label>
 				<input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br>
 
 				<label><b>Enter the text below:</b></label>
-                <input id="captcha" placeholder="Enter captcha "name="captchacode" type="text">
+                <input id="captcha" placeholder="Enter captcha "name="captchacode" type="text"  autocomplete="off">
                 <img src="captcha.php" alt="CAPTCHA" class="captcha-image" style="margin-top: 20px"/>
                 <i class="fas fa-redo refresh-captcha fa-2x" style = "cursor: pointer;"></i><br>
                 <br>
@@ -260,7 +260,7 @@
 					<!-- if you click here you will be registerd and go to loginpage -->
 					<button class="btn btn1" type="submit" style = "display:inline; width: 150px;">Register </button>
 				</div>
-			
+
 				<br>
 				<?php
 					if (isset($_SESSION['error'])) {
