@@ -74,7 +74,19 @@ session_start();
   <div class = "big_table" style = "text-align:center; margin: auto; width: 80%;">
   <h1 style = "text-transform: uppercase;"><?php echo "$user_name's profile:"?></h1><br /><br/>
   <?php
-      if (isset($_SESSION['user_id'])){
+  if (isset($_SESSION['email']))
+  {$email = $_SESSION['email'];}
+  if (isset($_SESSION['user_id'])){
+  }
+  else {
+    $_SESSION['message'] = "<p style = 'color:red;'><b>You need to log in in order to see this page!</b></p>";
+    header("Location: login.php");
+      //Add session error (check if it exists in the login)
+      //Redirect to login
+      //echo "Wrong";
+    }
+
+      /*if (isset($_SESSION['user_id'])){
         include("connectDB.php");
         //mysql_select_db("users") or die("could not able to connect");
         $result = mysqli_query($link,"select * from Users WHERE id = '".$_SESSION["user_id"]."'");
@@ -95,12 +107,12 @@ session_start();
         $username = $row["username"];
         $email = $row["email"];
       //  $password = $row["password"];
-      }
+    }*/
    ?>
    <div class = "table" style = "margin:auto; width: 50%;">
      <h1>Personal information:</h1>
      <?php
-     echo "<label><b>Username:</b></label> $username<br />";
+     echo "<label><b>Username:</b></label> $user_name<br />";
      echo "<br /><label><b>Email:</b></label> $email"; ?></div>
      <br />
      <br />

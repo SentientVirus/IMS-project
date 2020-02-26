@@ -9,11 +9,11 @@
 	$email_username = mysqli_real_escape_string($link, $_POST['email/username']);
 	$password = mysqli_real_escape_string($link, $_POST['password']);
 
-	//hash password 
+	//hash password
 	$options = array("cost"=>4);
 	$hashPassword = password_hash($password,PASSWORD_BCRYPT,$options);
 
-	$query = "SELECT id, password, activated FROM Users WHERE email = '".$email_username."' OR username = '".$email_username."' ";
+	$query = "SELECT id, username, email, password, activated FROM Users WHERE email = '".$email_username."' OR username = '".$email_username."' ";
 	$rs = mysqli_query($link, $query);
 	$numRows = mysqli_num_rows($rs);
 
@@ -26,10 +26,11 @@
 			}
 			else {
 				echo "Password verified";
-				// this needs to be changed to a hompage where you are already logged in
-				header('Location: index.php');
 				$_SESSION['user_id'] = $row['id'];
 				$_SESSION['username'] = $row['username'];
+				$_SESSION['email'] = $row['email'];
+				// this needs to be changed to a hompage where you are already logged in
+				header('Location: index.php');
 			}
 		}
 		else {
