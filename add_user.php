@@ -1,22 +1,18 @@
 <?php
 	session_start();
 ?>
-<?php
 
-if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_text']) {
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+
+if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_text']) {			
 
 	include 'connectDB.php';
-
-	// Get values from user input in html register.php
-	$username = $_POST["username"];
-	$email = $_POST["email"];
-	$password = $_POST["password"];
-
-
-	// To avoid SQL Injection
-	$username = mysqli_real_escape_string($link, $username);
-	$email = mysqli_real_escape_string($link, $email);
-	$password = mysqli_real_escape_string($link, $password);
+	
+	// To avoid SQL Injection 
+	$username = mysqli_real_escape_string($link, $_POST["username"]);
+	$email = mysqli_real_escape_string($link, $_POST["email"]);
+	$password = mysqli_real_escape_string($link, $_POST["password"]);
 
 	// This will remove all the illegal characters from the email.
 	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
@@ -28,47 +24,67 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 		$_SESSION['error'] = "<p style = 'color:red;'><b>$email is not a valid email address</b></p>";
 		header('Location: register.php');
 	}
-
-	// Check that email doesn't already exist
-	$query = "select * from users where email = '".$email."'";
+	
+	// Check that email doesn't already exist 
+	$query = "SELECT id FROM Users WHERE email = '".$email."'";
 	$rs = mysqli_query($link, $query);
 	$numRows = mysqli_num_rows($rs);
-	if(!$numRows == 0){
-		$_SESSION['error'] = "<p style = 'color:red;'><b>This email already exist, try another or ask for a new password if you have forgot your old.</b></p>";
+	if($numRows > 0){
+		$_SESSION['error'] = "<p style = 'color:red;'><b>This email already exist, please try another.</b></p>";
 		header('Location: register.php');
 		}
-	else {
-		// Hash password
-		$options = array("cost"=>4);
-		$hashPassword = password_hash($password, PASSWORD_BCRYPT,$options);
+	else {	
+		// CHeck that username doesn't already exist
+		$query = "SELECT id FROM Users WHERE username = '".$username."'";
+		$rs = mysqli_query($link, $query);
+		$numRows = mysqli_num_rows($rs);
+		if($numRows > 0){
+			$_SESSION['error'] = "<p style = 'color:red;'><b>This username already exist, please try another.</b></p>";
+			header('Location: register.php');
+			}
+		else {
+			
+			$token = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!$/()*';
+			$token = str_shuffle($token);
+			$token = substr($token, 0, 20);
+	
+			// Hash password 
+			$options = array("cost"=>4);
+			$hashPassword = password_hash($password, PASSWORD_BCRYPT, $options);
 
-		// Add user
-		$query = "INSERT INTO Users (username, email, password) VALUES ('$username', '$email', '$hashPassword')";
-		mysqli_query($link, $query);
-
-		include 'disconnectDB.php';
-
-		header('Location: login.php');
+			// Add user 
+			$query = "INSERT INTO Users (username, email, password, activated, token) VALUES ('$username', '$email', '$hashPassword', '0', '$token')";
+			mysqli_query($link, $query);
+		
+			include 'disconnectDB.php';
+		
+			include_once "PHPMailer/PHPMailer.php";
+		
+			$mail = new PHPMailer();
+			$mail -> setFrom('f2fd_IMS@outlook.com');
+			$mail -> addAddress($email, $username);
+			$mail -> Subject = 'Please verify your email!';
+			$mail -> isHTML(true);
+			
+			// Were not able to change this link to just confirm.php?email=$email&token=$token
+			// So it needs to be changed if you have another localhost address
+			$mail -> Body = "Please click on the link below to verify your email: <br><br> 
+			<a href='http://localhost:8888/confirm.php?email=$email&token=$token'>Click here</a>";
+		
+			if ($mail->send()) {
+				$_SESSION['message'] = nl2br("You have been registerd! \nA conformation email has been sent to $email, please verify your email. ");
+				header('Location: register.php');
+			}
+			else {
+				$_SESSION['error'] = "Ops, something went wrong, please try again!";
+				header('Location: register.php');
+			}
+		}
 	}
 }
 else {
 	$_SESSION['error']= "<p style = 'color:red;'><b>The captcha code is wrong. Try again.</b></p>";
 	header('Location: register.php');
 }
-
-// Can also write query like this
-// $query = sprintf("INSERT INTO Users (username, email, password) VALUES ('%s', '%s', '%s')",
-// 				mysql_real_escape_string($link, $username),
-// 				mysql_real_escape_string($link, $email),
-// 				mysql_real_escape_string($link, $hashPassword));
-// mysqli_query($link, $query);
-
-// // To avoid SQL Injection with PDO(can not get it to work yet)
-// $query = $dbh->prepare("INSERT INTO Users (username, email, password) VALUES (':username', ':email', ':hashPassword')");
-// $query->bindParam(':username', $username);
-// $query->bindParam(':email', $email);
-// $query->bindParam(':password', $hashPassword);
-// $query->execute();
-// mysqli_query($link, $query);
 
 ?>

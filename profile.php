@@ -77,10 +77,10 @@ session_start();
       if (isset($_SESSION['user_id'])){
         include("connectDB.php");
         //mysql_select_db("users") or die("could not able to connect");
-        $result = mysqli_query($link,"select * from users WHERE id = '".$_SESSION["user_id"]."'");
+        $result = mysqli_query($link,"select * from Users WHERE id = '".$_SESSION["user_id"]."'");
       }
       else {
-        $_SESSION['error'] = "<p style = 'color:red;'><b>You need to log in in order to see this page!</b></p>";
+        $_SESSION['message'] = "<p style = 'color:red;'><b>You need to log in in order to see this page!</b></p>";
         header("Location: login.php");
           //Add session error (check if it exists in the login)
           //Redirect to login

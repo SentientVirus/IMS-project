@@ -40,6 +40,13 @@
 		<form class = "table" action="check_login.php" method="POST" style="width:50%; margin:auto;
 		margin-top:10%; display: flex;">
 			<div>
+				<?php
+					if (isset($_SESSION['message'])) {
+						$message = $_SESSION['message'];
+						echo $message;
+						unset($_SESSION['message']);
+					}
+				?>
 				<h1>Login</h1>
 				<hr style = "border: 0; height: 1px; background: #333;
 				background-image: linear-gradient(to right, #ccc, #333, #ccc);">
