@@ -164,9 +164,6 @@
 						title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
 						required><br><br>
 
-				<label><b>Confirm password:</b></label>
-				<input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br>
-
 				<div id="message">
 						<h4>Password must contain the following:</h4>
 						<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
@@ -235,6 +232,10 @@
 					}
 				</script>
 				<br />
+				
+				<label><b>Confirm password:</b></label>
+				<input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br>
+
 				<label><b>Enter the text below:</b></label>
                 <input id="captcha" placeholder="Enter captcha "name="captchacode" type="text">
                 <img src="captcha.php" alt="CAPTCHA" class="captcha-image" style="margin-top: 20px"/>
