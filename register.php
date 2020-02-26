@@ -237,7 +237,7 @@
 				<input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br>
 
 				<label><b>Enter the text below:</b></label>
-                <input id="captcha" placeholder="Enter captcha "name="captchacode" type="text" autocomplete="off">
+                <input id="captcha" placeholder="Enter captcha "name="captchacode" type="text"  autocomplete="off">
                 <img src="captcha.php" alt="CAPTCHA" class="captcha-image" style="margin-top: 20px"/>
                 <i class="fas fa-redo refresh-captcha fa-2x" style = "cursor: pointer;"></i><br>
                 <br>
