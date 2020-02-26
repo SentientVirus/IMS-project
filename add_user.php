@@ -24,7 +24,6 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 		$_SESSION['error'] = "<p style = 'color:red;'><b>$email is not a valid email address</b></p>";
 		header('Location: register.php');
 	}
-<<<<<<< HEAD
 	
 	// Check that email doesn't already exist 
 	$query = "SELECT id FROM Users WHERE email = '".$email."'";
