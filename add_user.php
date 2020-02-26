@@ -59,13 +59,26 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 			include 'disconnectDB.php';
 		
 			include_once "PHPMailer/PHPMailer.php";
-		
+			require_once "PHPMailer/SMTP.php";
+        	require_once "PHPMailer/Exception.php";
+			
 			$mail = new PHPMailer();
-			$mail -> setFrom('f2fd_IMS@outlook.com');
+			
+			//SMTP Settings
+        	$mail->isSMTP();
+        	$mail->Host = "smtp.gmail.com";
+        	$mail->SMTPAuth = true;
+        	$mail->Username = "f2fdIMS@gmail.com";
+        	$mail->Password = 'IMSproject123';
+        	$mail->Port = 465; //587
+        	$mail->SMTPSecure = "ssl"; //tls
+		
+			//Email settings
+			$mail -> isHTML(true);
+			$mail -> setFrom('f2fdIMS@gmail.com');
 			$mail -> addAddress($email, $username);
 			$mail -> Subject = 'Please verify your email!';
-			$mail -> isHTML(true);
-			
+
 			// Were not able to change this link to just confirm.php?email=$email&token=$token
 			// So it needs to be changed if you have another localhost address
 			$mail -> Body = "Please click on the link below to verify your email: <br><br> 
