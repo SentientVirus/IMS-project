@@ -4,7 +4,10 @@ session_start();
 <!DOCTYPE html>
  <html>
  <head>
-   <title>F2FD:</title>
+   <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="indexcss.css">
+   <title>Profile page</title>
    <script src="https://kit.fontawesome.com/d0932f2606.js" crossorigin="anonymous"></script>
    <script>
            // Function to check whether both passwords are equal.
@@ -32,9 +35,44 @@ session_start();
                }
            }
        </script>
+       <div class = "header">
+           <img src="f2fd_logo.png" alt="F2FD"
+              id="logo"/>
+           <h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
+       </div>
 </head>
 <body>
-  <h2>PERSONAL INFORMATION:</h2><br /></br >
+  <br>
+  <div class="navbar" style = "margin-top:-18px;">
+    <a href="index.php">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Tests
+      </button>
+      <div class="dropdown-content">
+        <a href="questionnaire.php">Depression</a>
+        <a href="#">Illness2</a></div></div>
+        <?php
+        if (isset($_SESSION['user_id'])){
+        echo '<div class="dropdown">
+        <a href="logout.php" class="dropbtn" onclick = "session_destroy();">Logout</a></div>';
+        }
+        else {
+        echo '<div class="dropdown"><button class="dropbtn">Login</button>
+        <div class="dropdown-content">
+          <a href="login.php">Login</a>
+          <a href="register.php">Register</a></div></div>';}
+          ?>
+    <a class="active" href="profile.php"> Profile</a>
+    <div style = "float: right; margin-left: 10%;">
+    <a href="profile.php" style = "color: white;"><?php
+        if (isset($_SESSION['username']))
+        {$user_name = $_SESSION['username'];
+          echo "Welcome, $user_name";
+        }
+    ?></a></div>
+  </div>
+  <div class = "big_table" style = "text-align:center; margin: auto; width: 80%;">
+  <h1>PERSONAL INFORMATION:</h1><br /></br >
   <?php
       if (isset($_SESSION['user_id'])){
         include("connectDB.php");
@@ -59,7 +97,8 @@ session_start();
       //  $password = $row["password"];
       }
    ?>
-   <form onSubmit = "return checkPassword(this)" action="update_password.php" method="POST" >
+   <form class = "table" style = "margin:auto; width: 50%;"
+   onSubmit = "return checkPassword(this)" action="update_password.php" method="POST" >
       <h1>Change password</h1>
       <p>Please fill in the following fields:</p>
       <hr style = "border: 0; height: 1px; background: #333;
@@ -67,12 +106,13 @@ session_start();
 
       <label><b>Old password:</b></label>
       <input type="password" placeholder="Enter password" name="old_password" id="old_password" required><br>
-
+      <br />
       <label><b>New password:</b></label>
       <input 	type="password" placeholder="Enter password" name="new_password" id="new_password"
           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
           title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
           required><br>
+          <br />
       <label><b>Confirm password:</b></label>
       <input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br>
 
@@ -137,8 +177,19 @@ session_start();
           </script>
           <br />
 
-    <button class = "btn btn1" type="submit" style = "display:inline; width: 150px;">Save changes</button></form>
-    <form action="update_username.php" method="POST" >
+    <button class = "btn btn1" type="submit"
+    style = "display:inline; width: 150px; margin-left: 15%;">Save changes</button>
+    <?php
+      if (isset($_SESSION['error1'])) {
+          $errormsg = $_SESSION['error1'];
+          echo $errormsg;
+          unset($_SESSION['error1']);
+      }
+
+    ?>
+  </form>
+    <br />
+    <form class = "table" style = "margin:auto; width: 50%;" action="update_username.php" method="POST" >
        <h1>Change username</h1>
        <p>Please fill in the following fields:</p>
        <hr style = "border: 0; height: 1px; background: #333;
@@ -146,11 +197,23 @@ session_start();
 
        <label><b>Password:</b></label>
        <input type="password" placeholder="Enter password" name="old_password" id="old_password" required><br>
+       <br />
        <label><b>User name:</b></label>
        <input type="text" placeholder="Enter username" name="new_username" id="new_username" required><br><br>
 
-     <button class = "btn btn1" type="submit" style = "display:inline; width: 150px;">Save changes</button></form>
-     <form action="update_email.php" method="POST" >
+     <button class = "btn btn1" type="submit"
+     style = "display:inline; width: 150px; margin-left: 15%;">Save changes</button>
+     <?php
+       if (isset($_SESSION['error2'])) {
+           $errormsg = $_SESSION['error2'];
+           echo $errormsg;
+           unset($_SESSION['error2']);
+       }
+
+     ?>
+   </form>
+     <br />
+     <form class = "table" style = "margin:auto; width: 50%;" action="update_email.php" method="POST" >
         <h1>Change email</h1>
         <p>Please fill in the following fields:</p>
         <hr style = "border: 0; height: 1px; background: #333;
@@ -158,25 +221,27 @@ session_start();
 
         <label><b>Password:</b></label>
         <input type="password" placeholder="Enter password" name="old_password" id="old_password" required><br>
+        <br />
         <label><b>Email:</b></label>
         <input type="email" placeholder="Enter Email" name="new_email" id="new_email" required><br><br>
 
-      <button class = "btn btn1" type="submit" style = "display:inline; width: 150px;">Save changes</button></form>
+      <button class = "btn btn1" type="submit"
+      style = "display:inline; width: 150px; margin-left: 15%;">Save changes</button>
+      <?php
+        if (isset($_SESSION['error3'])) {
+            $errormsg = $_SESSION['error3'];
+            echo $errormsg;
+            unset($_SESSION['error3']);
+        }
+
+      ?>
+    </form>
 
       <!-- this line need to be changed to a link with terms of agreement -->
-      <p>By creating an account you agree to our <a href="terms_and_privacy.php" target = "_blank" style="color:dodgerblue"> Terms & Privacy</a>.</p>
-
       <div>
-        <?php
-					if (isset($_SESSION['error1'])) {
-   					 	$errormsg = $_SESSION['error1'];
-    					echo $errormsg;
-   		 				unset($_SESSION['error1']);
-					}
-
-				?>
         <!-- Later: "please varify your email"  -->
       <br />
       </div>
+    </div>
 </body>
 </html>
