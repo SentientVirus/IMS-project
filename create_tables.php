@@ -65,7 +65,7 @@ $sql = "DROP TABLE if exists Diseases;";
 // sql to create table
 $sql = "CREATE TABLE Diseases (
   id INT(32) AUTO_INCREMENT PRIMARY KEY,
-  disease_name VARCHAR(128) NOT NULL,
+  disease_name VARCHAR(128) NOT NULL UNIQUE,
   description TEXT
 )";
 
