@@ -2,7 +2,7 @@
  
 session_start();
  
-$permitted_chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabdefghkmnprt0123456789';
+$permitted_chars = 'ABDEFGHKLMNQRTabdefghkmnqrt123456789';
   
 function generate_string($input, $strength = 5) {
     $input_length = strlen($input);
