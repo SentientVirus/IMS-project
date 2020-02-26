@@ -136,9 +136,17 @@
 						<a href="profile.php"> Profile</a>
 					</div>
 
-    	<div class="table" style = "width:50%; text-align: left; margin: auto;
-			margin-top: 5%;">
+    	<div class="table" style = "width:50%; text-align: left; margin: auto; margin-top: 5%;">
 			<form onSubmit = "return checkPassword(this)" action="add_user.php" method="POST" >
+				<div style= 'text-align: center;'>
+					<?php
+						if (isset($_SESSION['message'])) {
+							$message = $_SESSION['message'];
+							echo $message;
+							unset($_SESSION['message']);
+						}
+					?>
+				</div>
 				<h1>Register</h1>
 				<p>Please fill in the following fields to register:</p>
 				<hr style = "border: 0; height: 1px; background: #333;
@@ -158,7 +166,7 @@
 
 				<label><b>Confirm password:</b></label>
 				<input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br><br>
-
+				
 				<label><b>Enter the text below:</b></label>
                 <input id="captcha" placeholder="Enter captcha "name="captchacode" type="text">
                 <img src="captcha.php" alt="CAPTCHA" class="captcha-image" style="margin-top: 20px"/>
@@ -176,16 +184,15 @@
 				<div>
 					<!-- change this button with CSS so that it looks nice -->
 					<!-- if you click here you will go back to homepage -->
-					<div style = "text-align:right;">
+					<div style = "text-align:right;" class="form-actions">
 					<input class = "btn btn1" type="button" value="Cancel"
 					formnovalidate onClick="window.location = 'index.php'"
 					style = "display: inline; width: 150px;"></button>
 					<!-- if you click here you will be registerd and go to loginpage -->
-					<button class = "btn btn1" type="submit" style = "display:inline; width: 150px;">Register </button>
+					<button class="btn btn1" type="submit" style = "display:inline; width: 150px;">Register </button>
 				</div>
-
-					<!-- Later: "please varify your email"  -->
-				<br />
+			
+				<br>
 				<?php
 					if (isset($_SESSION['error'])) {
    					 	$errormsg = $_SESSION['error'];
@@ -194,10 +201,7 @@
 					}
 
 				?>
-				</div>
-
 			</form>
-
 		</div>
 
 		<div id="message">
