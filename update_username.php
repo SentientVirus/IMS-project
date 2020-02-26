@@ -12,7 +12,7 @@
 	$old_password = mysqli_real_escape_string($link, $old_password);
   $new_username = mysqli_real_escape_string($link, $new_username);
 
-	$query = "select * from users where id = '".$id."'";
+	$query = "select * from Users where id = '".$id."'";
 	$rs = mysqli_query($link, $query);
 	$numRows = mysqli_num_rows($rs);
 
@@ -23,7 +23,7 @@
 			echo "Password verified";
 			// this needs to be changed to a hompage where you are already logged in
 			//header('Location: index.php');
-      $query = "select * from users where username = '".$new_username."'";
+      $query = "select * from Users where username = '".$new_username."'";
       $rs = mysqli_query($link, $query);
       $numRows = mysqli_num_rows($rs);
       if(!$numRows == 0){
@@ -32,7 +32,7 @@
       	}
       else {
       	// Hash password
-			$query = "UPDATE users
+			$query = "UPDATE Users
 			SET username = '$new_username'
 			WHERE id = '$id'";
 

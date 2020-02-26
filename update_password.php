@@ -15,7 +15,7 @@
 	$options = array("cost"=>4);
 	$hashPassword = password_hash($old_password,PASSWORD_BCRYPT,$options);
 
-	$query = "select * from users where id = '".$id."'";
+	$query = "select * from Users where id = '".$id."'";
 	$rs = mysqli_query($link, $query);
 	$numRows = mysqli_num_rows($rs);
 
@@ -29,7 +29,7 @@
 			echo "Password verified";
 			// this needs to be changed to a hompage where you are already logged in
 			//header('Location: index.php');
-			$query = "UPDATE users
+			$query = "UPDATE Users
 			SET password = '$hashNewPassword'
 			WHERE id = '$id'";
 
