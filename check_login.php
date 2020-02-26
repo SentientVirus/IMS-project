@@ -44,19 +44,4 @@
 
 	include 'disconnectDB.php';
 
-
-// Send confirmation email when register
-// Login with either email or username
-// add a link to register on the loginpage
-<<<<<<< HEAD
-// HHTTPS if hae time 
-// make submit button the main button 
-// change so that password hashed in html page
-=======
-// HHTTPS if hae time
-// make submit button
-
-include 'disconnectDB.php';
-
->>>>>>> 74b790bb002e38385b69900cdd2b24e806701762
 ?>
