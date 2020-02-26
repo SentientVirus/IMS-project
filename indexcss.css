@@ -266,6 +266,18 @@ html, body {
   align-items: center;
 }
 
+.big_table{
+  background: transparent;
+  border-radius: 10px;
+  padding:30px;
+  text-align: justify;
+  text-justify: inter-word;
+  font-family: 'Tahoma', sans-serif;
+  /*display: flex;*/
+  justify-content: center;
+  align-items: center;
+}
+
 .table1 th {
 background: url("desenfoque.png"), linear-gradient(#D9181D 0%, #4d0000 100%);
 background-size: cover;

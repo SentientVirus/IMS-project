@@ -17,20 +17,21 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 	// This will remove all the illegal characters from the email.
 	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 	// Then we validate the email.
-	if (filter_var($email, FILTER_VALIDATE_EMAIL)) { 
+	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		// the email is valid
 	}
-	else { 
-		$_SESSION['error'] = "$email is not a valid email address";
+	else {
+		$_SESSION['error'] = "<p style = 'color:red;'><b>$email is not a valid email address</b></p>";
 		header('Location: register.php');
 	}
+<<<<<<< HEAD
 	
 	// Check that email doesn't already exist 
 	$query = "SELECT id FROM Users WHERE email = '".$email."'";
 	$rs = mysqli_query($link, $query);
 	$numRows = mysqli_num_rows($rs);
 	if($numRows > 0){
-		$_SESSION['error'] = "This email already exist, try another.";
+		$_SESSION['error'] = "<p style = 'color:red;'><b>This email already exist, please try another.</b></p>";
 		header('Location: register.php');
 		}
 	else {	
@@ -39,7 +40,7 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 		$rs = mysqli_query($link, $query);
 		$numRows = mysqli_num_rows($rs);
 		if($numRows > 0){
-			$_SESSION['error'] = "This username already exist, try another.";
+			$_SESSION['error'] = "<p style = 'color:red;'><b>This username already exist, please try another.</b></p>";
 			header('Location: register.php');
 			}
 		else {
@@ -83,8 +84,8 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 	}
 }
 else {
-	$_SESSION['error']= "The captcha code is wrong. Try again.";
-	header('Location: register.php'); 
+	$_SESSION['error']= "<p style = 'color:red;'><b>The captcha code is wrong. Try again.</b></p>";
+	header('Location: register.php');
 }
 
 ?>

@@ -51,6 +51,13 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
             <a href="register.php">Register</a></div></div>';}
           ?>
       <a href="profile.php"> Profile</a>
+      <div style = "float: right; margin-left: 10%;">
+      <a href="profile.php" style = "color: white;"><?php
+          if (isset($_SESSION['username']))
+          {$user_name = $_SESSION['username'];
+            echo "Welcome, $user_name";
+          }
+      ?></a></div>
     </div>
     <table class = "table1" border='0'>
 
@@ -62,7 +69,7 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
           for ($i= 0; $i < mysqli_num_rows($result); $i++) {
             $arr = mysqli_fetch_row(${"result$i"});
             ?>
-            <tr><td>
+            <tr><td style = "padding: 2.5%;">
             <?php echo $arr[2]; ?>
             </td><td>
             <input class= "option-input radio" type="radio" value="Yes"

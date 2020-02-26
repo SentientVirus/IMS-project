@@ -73,7 +73,14 @@ foreach ($result as $row) {
             <a href="login.php">Login</a>
             <a href="register.php">Register</a></div></div>';}
             ?>
-      <a href="pro.php"> Profile</a>
+      <a href="profile.php"> Profile</a>
+      <div style = "float: right; margin-left: 10%;">
+      <a href="profile.php" style = "color: white;"><?php
+          if (isset($_SESSION['username']))
+          {$user_name = $_SESSION['username'];
+            echo "Welcome, $user_name";
+          }
+      ?></a></div>
     </div>
     <div class = "table" style = "width: 50%; margin: auto; text-align: center;
     margin-top: 10%;">
@@ -104,6 +111,16 @@ foreach ($result as $row) {
       depression in the rest of your life than normal people.<br>Congratulations!";
 
     }
+
+    if (isset($_SESSION['user_id'])) {
+      // make the home page post to this page with $_POST["disease_chosen"]
+      $query = "INSERT INTO Results (user_id, disease_id, result) VALUES ({$_SESSION['user_id']}, 1,{$rel_score})";
+      $save_result = mysqli_query($link, $query);
+
+    }
+
+
+
 
     include("disconnectDB.php");
 
