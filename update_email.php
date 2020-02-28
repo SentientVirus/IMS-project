@@ -37,6 +37,7 @@
 			WHERE id = '$id'";
 
 			mysqli_query($link, $query);
+			$_SESSION['email'] = $new_email;
 		}
     }
 		else {

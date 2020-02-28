@@ -14,7 +14,7 @@
     -->
   <div class="">
 
-    <form action="insert_data_admin.php" target="_self" method="post">
+    <form action="insert_diseases_admin.php" method="post">
 
       Please enter the disease's name:<br>
       <input type="text" id="D_name" name="D_name" placeholder="Disease's name"><br><br>
@@ -31,32 +31,28 @@
   <br>
 
   <div class="">
-    <form action="insert_data_admin.php" target="_self" autocomplete="off">
+    <form action="insert_traits&correlations_admin.php" method="post" >
 
       Please enter the question sentence:<br>
       <input type="text" id="T_name" name="T_name" placeholder="Human friendly, plz"><br><br>
 
-      <div class="autocomplete" style="width:300px;">
-        Please choose the disease's name:<br>
-        <input type="text" id="C_D_name" name="C_D_name" placeholder="Type a bit and choose"><br><br>
-      </div>
-
+      Please choose the disease's name:<br>
+      <input type="text" id="C_D_name" name="C_D_name" placeholder="Type a bit and choose"><br><br>
 
       Please enter the correlation between those two (floating value like 0.45512):<br>
       <input type="text" id="C_rg" name="C_rg" placeholder="A floating number < 1"><br><br>
 
       <input type="submit" value="Submit">
-
-
     </form>
-
+  </div>
+    <!--
     <script type="text/javascript">
       var diseases = ["Dpression","Heart-Disease","Diabetes"];
     </script>
+  -->
 
 
 
-  </div>
 
 
 

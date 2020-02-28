@@ -37,6 +37,7 @@
 			WHERE id = '$id'";
 
 			mysqli_query($link, $query);
+			$_SESSION['username'] = $new_username;
 		}
     }
 		else {
