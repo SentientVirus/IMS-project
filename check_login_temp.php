@@ -27,9 +27,9 @@
 			else {
 				echo "Password verified";
 				// this needs to be changed to a hompage where you are already logged in
-				header('Location: index.php');
 				$_SESSION['user_id'] = $row['id'];
 				$_SESSION['username'] = $row['username'];
+                                header('Location: index.php');
 			}
 		}
 		else {
