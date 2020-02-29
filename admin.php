@@ -14,7 +14,7 @@
     -->
   <div class="">
 
-    <form action="insert_diseases_admin.php" method="post">
+    <form action="admin_insert_diseases.php" method="post">
 
       Please enter the disease's name:<br>
       <input type="text" id="D_name" name="D_name" placeholder="Disease's name"><br><br>
@@ -31,7 +31,7 @@
   <br>
 
   <div class="">
-    <form action="insert_traits&correlations_admin.php" method="post" >
+    <form action="admin_insert_traits&correlations.php" method="post" >
 
       Please enter the question sentence:<br>
       <input type="text" id="T_name" name="T_name" placeholder="Human friendly, plz"><br><br>
