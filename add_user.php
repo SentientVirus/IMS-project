@@ -11,8 +11,14 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 
 	// To avoid SQL Injection
 	$username = mysqli_real_escape_string($link, $_POST["username"]);
+	$username = str_replace("%","\%",$username);
+	$username = str_replace("_","\_",$username);
 	$email = mysqli_real_escape_string($link, $_POST["email"]);
+	$email = str_replace("%","\%",$email);
+	$email = str_replace("_","\_",$email);
 	$password = mysqli_real_escape_string($link, $_POST["password"]);
+	$password = str_replace("%","\%",$password);
+	$password = str_replace("_","\_",$password);
 
 	// This will remove all the illegal characters from the email.
 	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
@@ -49,7 +55,7 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 			$token = substr($token, 0, 20);
 
 			// Hash password
-			$options = array("cost"=>4);
+			$options = array("cost"=>9);
 			$hashPassword = password_hash($password, PASSWORD_BCRYPT, $options);
 
 			// Add user

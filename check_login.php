@@ -7,10 +7,15 @@
 
 	// To avoid SQL Injection
 	$email_username = mysqli_real_escape_string($link, $_POST['email/username']);
+	$email_username = str_replace("%","\%",$email_username);
+	$email_username = str_replace("_","\_",$email_username);
 	$password = mysqli_real_escape_string($link, $_POST['password']);
+	$password = str_replace("%","\%",$password);
+	$password = str_replace("_","\_",$password);
+
 
 	//hash password
-	$options = array("cost"=>4);
+	$options = array("cost"=>9);
 	$hashPassword = password_hash($password,PASSWORD_BCRYPT,$options);
 
 	$query = "SELECT id, username, email, password, activated FROM Users WHERE email = '".$email_username."' OR username = '".$email_username."' ";
