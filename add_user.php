@@ -82,7 +82,7 @@ if(isset($_POST['captchacode']) && $_POST['captchacode'] == $_SESSION['captcha_t
 			// Were not able to change this link to just confirm.php?email=$email&token=$token
 			// So it needs to be changed if you have another localhost address
 			$mail -> Body = "Please click on the link below to verify your email: <br><br>
-			<a href='http://localhost:8888/confirm.php?email=$email&token=$token'>Click here</a>";
+			<a href='http://f2fd.com/confirm.php?email=$email&token=$token'>Click here</a>";
 
 			if ($mail->send()) {
 				$_SESSION['message'] = nl2br("You have been registerd! \nA conformation email has been sent to $email, please verify your email. ");
