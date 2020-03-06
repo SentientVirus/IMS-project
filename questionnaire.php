@@ -95,19 +95,6 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
 
 
 
-    <script type="text/javascript">
-      function loopForm(form) {
-        var radioResults = 'Radio buttons: ';
-        for (var i = 1; i < form.elements.length; i++ ) {
-            if (form.elements[i].type == 'radio') {
-                if (form.elements[i]. == true) {
-                    radioResults += form.elements[i].value + ' ';
-                }
-            }
-        }
-        document.getElementById("radioResults").innerHTML = radioResults;
-    }
-    </script>
 
 
   </body>
