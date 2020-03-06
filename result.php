@@ -121,7 +121,7 @@ $length = mysqli_num_rows($result);
 
     if (isset($_SESSION['user_id'])) {
       // make the home page post to this page with $_POST["disease_chosen"]
-      $query = "INSERT INTO Results (user_id, disease_id, result) VALUES ({$_SESSION['user_id']}, 1,{$rel_score})";
+      $query = "INSERT INTO Results (user_id, disease_id, result) VALUES ({$_SESSION['user_id']}, {$Disease_id},{$rel_score})";
       $save_result = mysqli_query($link, $query);
 
     }
