@@ -1,17 +1,20 @@
 <?php
 session_start();
+$_SESSION['choice']=$_GET['choice'];
+$disease_chosen = $_SESSION['choice'];
+
 include("connectDB.php");
 $result = mysqli_query($link,"select disease_name, Traits.id, question, rg
                               from Diseases, Traits, Correlations
                               where Diseases.id = disease_id
                               and Traits.id = trait_id
-                              and disease_name = 'Depression';");
+                              and disease_name = '{$disease_chosen}';");
 
 for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
 
    ${"result$i"} = mysqli_query($link,"select disease_name, Traits.id, question, rg
    from Diseases, Traits, Correlations
-   where Diseases.id = disease_id and Traits.id = trait_id and disease_name = 'Depression'
+   where Diseases.id = disease_id and Traits.id = trait_id and disease_name = '{$disease_chosen}'
    LIMIT ".$i.",1;");
 
 }
