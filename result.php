@@ -105,14 +105,13 @@ $length = mysqli_num_rows($result);
         $query4RG = mysqli_query($link,"SELECT rg from Correlations where trait_id = {$j} LIMIT 1;");
         foreach ($query4RG as $row) {
           $score += $row["rg"];
-					echo $row["rg"];
         }
       }
     }
 
 
     //echo "Your absolute depression score is: ".$score;
-		echo $score;
+
       $rel_score = ($score - $min_score)*100/$span;
       ?>
       <?php
@@ -120,7 +119,7 @@ $length = mysqli_num_rows($result);
       echo "<br><hr><br>Your health is pretty good!! Enjoy your life and rock on!";
     } else {
       $compare_to_50 = round(($rel_score-50)*2, 2);
-      echo "<br><hr><br>You are {$compare_to_50}% more likely to develop {$disease_chosen} in the rest of your life than normal people.";
+      echo "<br><hr><br>You are {$compare_to_50}% more likely to develop {$disease_chosen} in the rest of your life than normal people.<br>";
       $description = mysqli_query($link, "SELECT description FROM Diseases where disease_name = '{$disease_chosen}';");
       foreach ($description as $key) {
         echo "<br>".$key["description"];
