@@ -19,7 +19,8 @@ $query_4_Did = mysqli_query($link,"SELECT id FROM Diseases WHERE disease_name = 
 //2. HTML page showing the results
 $result = mysqli_query($link,"SELECT disease_name, Traits.id, question, rg
 from Diseases, Traits, Correlations
-where Diseases.id = disease_id and Traits.id = trait_id and disease_name = '{$disease_chosen}';");
+where Diseases.id = disease_id and Traits.id = trait_id and disease_name = '{$disease_chosen}'
+order by Traits.id;");
 $min_score = 0;
 $max_score = 0;
 foreach ($result as $row) {
@@ -100,16 +101,18 @@ $length = mysqli_num_rows($result);
     $score = 0;
     for($i = 1; $i < $length + 1; $i++) {
       if ($_POST["Q".$i] == "Yes"){
-        $j = $i + $trait_1_id + 1;
+        $j = $i + $trait_1_id - 1;
         $query4RG = mysqli_query($link,"SELECT rg from Correlations where trait_id = {$j} LIMIT 1;");
         foreach ($query4RG as $row) {
           $score += $row["rg"];
+					echo $row["rg"];
         }
       }
     }
 
 
     //echo "Your absolute depression score is: ".$score;
+		echo $score;
       $rel_score = ($score - $min_score)*100/$span;
       ?>
       <?php
