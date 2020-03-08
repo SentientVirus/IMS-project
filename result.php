@@ -17,7 +17,7 @@ $query_4_Did = mysqli_query($link,"SELECT id FROM Diseases WHERE disease_name = 
 //1. Receive the result from questionnaire.php
 //1. Calculate the result from the questionnaire.php
 //2. HTML page showing the results
-$result = mysqli_query($link,"SELECT disease_name, Traits.id, question, rg
+$result = mysqli_query($link,"SELECT DISTINCT disease_name, Traits.id, question, rg
 from Diseases, Traits, Correlations
 where Diseases.id = disease_id and Traits.id = trait_id and disease_name = '{$disease_chosen}'
 order by Traits.id;");
