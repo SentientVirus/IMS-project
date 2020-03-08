@@ -1,5 +1,7 @@
 <?php
-session_start();
+	session_start();
+	include("connectDB.php");
+	$D_names = mysqli_query($link,"SELECT disease_name FROM Diseases;");
 ?>
 <!DOCTYPE html>
  <html>
@@ -49,8 +51,13 @@ session_start();
       <button class="dropbtn">Tests
       </button>
       <div class="dropdown-content">
-        <a href="questionnaire.php">Depression</a>
-        <a href="#">Illness2</a></div></div>
+        <?php
+        foreach ($D_names as $row) {
+          $disease = $row["disease_name"];
+          echo "<a href='questionnaire.php?choice=".$disease."'> ".$disease." </a>";
+        }
+        ?>
+        </div></div>
         <?php
         if (isset($_SESSION['user_id'])){
         echo '<div class="dropdown">

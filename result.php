@@ -1,7 +1,9 @@
 <?php
-session_start();
+	session_start();
+	include("connectDB.php");
+	$D_names = mysqli_query($link,"SELECT disease_name FROM Diseases;");
 $disease_chosen = $_SESSION['choice'];
-include("connectDB.php");
+
 $query_4_Tid = mysqli_query($link,"SELECT trait_id FROM Correlations, Diseases
   WHERE id = disease_id and disease_name = '{$disease_chosen}' order by trait_id asc LIMIT 1;");
   foreach ($query_4_Tid as $key) {
@@ -63,8 +65,13 @@ $length = mysqli_num_rows($result);
         <button class="dropbtn" style = "background-color: #D9181D;">Tests
         </button>
         <div class="dropdown-content">
-          <a href="questionnaire.php">Depression</a>
-          <a href="#">Illness2</a></div></div>
+          <?php
+          foreach ($D_names as $row) {
+            $disease = $row["disease_name"];
+            echo "<a href='questionnaire.php?choice=".$disease."'> ".$disease." </a>";
+          }
+          ?>
+          </div>
           <?php
           if (isset($_SESSION['user_id'])){
           echo '<div class="dropdown">
