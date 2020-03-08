@@ -4,23 +4,25 @@
 	<?php
 	include 'connectDB.php';
 	// Get values from user input in html register.php
-	$new_password = $_POST["new_password"];
-	$old_password = $_POST["old_password"];
 	$id = $_SESSION["user_id"];
 
 	// To avoid SQL Injection
-	$old_password = mysqli_real_escape_string($link, $old_password);
+	$old_password = mysqli_real_escape_string($link, $_POST["old_password"]);
+	$old_password = str_replace("%", "\%", $old_password);
+	$old_password = str_replace("_", "\_", $old_password);
 
 	//hash password
-	$options = array("cost"=>4);
+	$options = array("cost"=>9);
 	$hashPassword = password_hash($old_password,PASSWORD_BCRYPT,$options);
 
 	$query = "select * from Users where id = '".$id."'";
 	$rs = mysqli_query($link, $query);
 	$numRows = mysqli_num_rows($rs);
 
-	$new_password = mysqli_real_escape_string($link, $new_password);
-	$hashNewPassword = password_hash($new_password,PASSWORD_BCRYPT,$options);
+	$new_password = mysqli_real_escape_string($link, $_POST["new_password"]);
+	$new_password = str_replace("%", "\%", $new_password);
+	$new_password = str_replace("_", "\_", $new_password);
+	$hashNewPassword = password_hash($new_password, PASSWORD_BCRYPT,$options);
 
 
 	if($numRows  == 1) {
