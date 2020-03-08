@@ -111,7 +111,7 @@ $length = mysqli_num_rows($result);
 
 
     //echo "Your absolute depression score is: ".$score;
-		echo $score;
+
       $rel_score = ($score - $min_score)*100/$span;
       ?>
       <?php
