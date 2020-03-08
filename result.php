@@ -71,7 +71,7 @@ $length = mysqli_num_rows($result);
             echo "<a href='questionnaire.php?choice=".$disease."'> ".$disease." </a>";
           }
           ?>
-          </div>
+				</div></div>
           <?php
           if (isset($_SESSION['user_id'])){
           echo '<div class="dropdown">
@@ -90,7 +90,7 @@ $length = mysqli_num_rows($result);
           {$user_name = $_SESSION['username'];
             echo "Welcome, $user_name";
           }
-      ?></a></div>
+      ?></a></div></div>
     </div>
     <div class = "table" style = "width: 50%; margin: auto; text-align: center;
     margin-top: 10%;">

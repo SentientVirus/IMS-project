@@ -134,11 +134,16 @@
             <p>However, when analyzing your results, keep in mind that correlation
               does not imply causation: for example, if you stop drinking tea,
               you won't become less likely to develop depression.</p>
-              <select autofocus name = "illness" onchange="location = this.value;" class = "btn btn1"; style = "text-decoration: none; margin-left: 35%;
+							<select autofocus name = "illness" onchange="location = this.value;" class = "btn btn1"; style = "text-decoration: none; margin-left: 35%;
               height: 56px; font-family: 'Tahoma', sans-serif; font-size: 14px;">
               <option value = "" selected = "selected">Choose test</option>
-              <option value= "questionnaire.php">Depression</option>
-              <option value= "illness2.php">Illness2</option></select>
+							<?php
+							foreach ($D_names as $row) {
+								$disease = $row["disease_name"];?>
+              <option value= <?php echo "'questionnaire.php?choice=".$disease."'"?>><?php echo "$disease";?></option>
+							<?php
+							}
+							?></select>
               </div>
               </div>
               </div>
