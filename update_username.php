@@ -4,13 +4,15 @@
 	<?php
 	include 'connectDB.php';
 	// Get values from user input in html register.php
-	$new_username = $_POST["new_username"];
-	$old_password = $_POST["old_password"];
 	$id = $_SESSION["user_id"];
 
 	// To avoid SQL Injection
-	$old_password = mysqli_real_escape_string($link, $old_password);
-  $new_username = mysqli_real_escape_string($link, $new_username);
+	$old_password = mysqli_real_escape_string($link, $_POST["old_password"]);
+	$old_password = str_replace("%","\%", $old_password);
+	$old_password = str_replace("_","\_", $old_password);
+  $new_username = mysqli_real_escape_string($link, $_POST["new_username"]);
+	$new_username = str_replace("%","\%", $new_username);
+	$new_username = str_replace("_","\_", $new_username);
 
 	$query = "select * from Users where id = '".$id."'";
 	$rs = mysqli_query($link, $query);

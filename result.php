@@ -1,14 +1,26 @@
 <?php
-session_start();
- ?>
-<?php
-include("connectDB.php");
+	session_start();
+	include("connectDB.php");
+	$D_names = mysqli_query($link,"SELECT disease_name FROM Diseases;");
+$disease_chosen = $_SESSION['choice'];
+
+$query_4_Tid = mysqli_query($link,"SELECT trait_id FROM Correlations, Diseases
+  WHERE id = disease_id and disease_name = '{$disease_chosen}' order by trait_id asc LIMIT 1;");
+  foreach ($query_4_Tid as $key) {
+    $trait_1_id = $key["trait_id"];
+  }
+$query_4_Did = mysqli_query($link,"SELECT id FROM Diseases WHERE disease_name = '{$disease_chosen}';");
+  foreach ($query_4_Did as $key) {
+    $Disease_id = $key["id"];
+  }
+
 //1. Receive the result from questionnaire.php
 //1. Calculate the result from the questionnaire.php
 //2. HTML page showing the results
-$result = mysqli_query($link,"select disease_name, Traits.id, question, rg
+$result = mysqli_query($link,"SELECT DISTINCT disease_name, Traits.id, question, rg
 from Diseases, Traits, Correlations
-where Diseases.id = disease_id and Traits.id = trait_id and disease_name = 'Depression';");
+where Diseases.id = disease_id and Traits.id = trait_id and disease_name = '{$disease_chosen}'
+order by Traits.id;");
 $min_score = 0;
 $max_score = 0;
 foreach ($result as $row) {
@@ -21,13 +33,7 @@ foreach ($result as $row) {
 }
 $span = $max_score - $min_score;
 
-
 $length = mysqli_num_rows($result);
-$max_score = 0;
-foreach ($result as $row) {
-  $max_score += $row["rg"];
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -60,8 +66,13 @@ foreach ($result as $row) {
         <button class="dropbtn" style = "background-color: #D9181D;">Tests
         </button>
         <div class="dropdown-content">
-          <a href="questionnaire.php">Depression</a>
-          <a href="#">Illness2</a></div></div>
+          <?php
+          foreach ($D_names as $row) {
+            $disease = $row["disease_name"];
+            echo "<a href='questionnaire.php?choice=".$disease."'> ".$disease." </a>";
+          }
+          ?>
+				</div></div>
           <?php
           if (isset($_SESSION['user_id'])){
           echo '<div class="dropdown">
@@ -80,7 +91,7 @@ foreach ($result as $row) {
           {$user_name = $_SESSION['username'];
             echo "Welcome, $user_name";
           }
-      ?></a></div>
+      ?></a></div></div>
     </div>
     <div class = "table" style = "width: 50%; margin: auto; text-align: center;
     margin-top: 10%;">
@@ -90,8 +101,8 @@ foreach ($result as $row) {
     $score = 0;
     for($i = 1; $i < $length + 1; $i++) {
       if ($_POST["Q".$i] == "Yes"){
-        $query4RG = mysqli_query($link,"select rg from Correlations
-        where trait_id = {$i} and disease_id = 1;");
+        $j = $i + $trait_1_id - 1;
+        $query4RG = mysqli_query($link,"SELECT rg from Correlations where trait_id = {$j} LIMIT 1;");
         foreach ($query4RG as $row) {
           $score += $row["rg"];
         }
@@ -100,21 +111,26 @@ foreach ($result as $row) {
 
 
     //echo "Your absolute depression score is: ".$score;
+
       $rel_score = ($score - $min_score)*100/$span;
       ?>
       <?php
     if ($rel_score <= 50) {
-      echo "<br><hr><br>Your mental health is good as FUCK!!! Enjoy your life and rock on!";
+      echo "<br><hr><br>Your health is pretty good!! Enjoy your life and rock on!";
     } else {
       $compare_to_50 = round(($rel_score-50)*2, 2);
-      echo "<br><hr><br>You are {$compare_to_50}% more likely to develop
-      depression in the rest of your life than normal people.<br>Congratulations!";
+      echo "<br><hr><br>You are {$compare_to_50}% more likely to develop {$disease_chosen} in the rest of your life than normal people.<br>";
+      $description = mysqli_query($link, "SELECT description FROM Diseases where disease_name = '{$disease_chosen}';");
+      foreach ($description as $key) {
+        echo "<br>".$key["description"];
+      }
+
 
     }
 
     if (isset($_SESSION['user_id'])) {
       // make the home page post to this page with $_POST["disease_chosen"]
-      $query = "INSERT INTO Results (user_id, disease_id, result) VALUES ({$_SESSION['user_id']}, 1,{$rel_score})";
+      $query = "INSERT INTO Results (user_id, disease_id, result) VALUES ({$_SESSION['user_id']}, {$Disease_id},{$rel_score})";
       $save_result = mysqli_query($link, $query);
 
     }

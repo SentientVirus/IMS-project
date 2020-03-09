@@ -77,7 +77,9 @@
     -->
   <div class="">
 
-    <form action="admin_insert_diseases.php" method="post">
+    <!-- <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe> -->
+
+    <form action="admin_insert_diseases.php" method="post" target="dummyframe">
 
       Please enter the disease's name:<br>
       <input type="text" id="D_name" name="D_name" placeholder="Disease's name"><br><br>
@@ -93,8 +95,9 @@
   <hr>
   <br>
 
+  <!--   <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe> -->
 
-    <form action="admin_insert_traits&correlations.php" method="post" autocomplete="off">
+    <form action="admin_insert_traits&correlations.php" target="dummyframe" method="post" autocomplete="off">
 
 
         Please enter the question sentence:<br>
@@ -218,20 +221,7 @@
 
   /*An array containing all the country names in the world:*/
 
-  var diseases1 = [<?php
-  $query1 = mysqli_query($link,"SELECT disease_name FROM Diseases;");
-  $array_php = mysqli_fetch_array($query1["disease_name"]);
-  $text = implode("','", $array_php);
-  echo $text;
-  ?>];
-
-  var diseases = ["Depression", "happy"];
-
-  //var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla",
-  //"Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria",
-  //"Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium",
-  //"Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana",
-  //"Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso"];
+  var diseases = ["Depression", "Diabetes", "Heart diseases"];
 
   /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
   autocomplete(document.getElementById("C_D_name"), diseases);
