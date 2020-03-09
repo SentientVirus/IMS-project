@@ -19,7 +19,7 @@
 		<div class = "header">
 				<img src="f2fd_logo.png" alt="F2FD"
 					 id="logo"/>
-				<h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
+				<h1 id="headerh1">Phenotype to Phenotype Prediction</h1>
 		</div>
 		<!-- Get refrech button for captcha -->
 		<script src="https://kit.fontawesome.com/d0932f2606.js" crossorigin="anonymous"></script>
@@ -238,10 +238,9 @@
 						}
 					}
 				</script>
-				<br />
 
 				<label><b>Confirm password:</b></label>
-				<input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br>
+				<input type="password" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" required><br><br>
 
 				<label><b>Enter the text below:</b></label>
                 <input id="captcha" placeholder="Enter captcha "name="captchacode" type="text"  autocomplete="off">

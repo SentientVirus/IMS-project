@@ -5,12 +5,12 @@
         <link rel="stylesheet" href="indexcss.css">
         <title>F2FD</title>
         <header>
-            <h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
+            <h1 id="headerh1">Phenotype to Phenotype Prediction</h1>
         </header>
     </head>
     <body>
         <div class="sidebar">
-            <img src="generic-logo.jpg" alt="A generic logo" 
+            <img src="generic-logo.jpg" alt="A generic logo"
                  style="width: 140px;height: 42px" id="logo">
         </div>
         <div id="main">
@@ -47,6 +47,6 @@
         </div></aside>
     </body>
     <footer>
-        
+
     </footer>
 </html>

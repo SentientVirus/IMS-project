@@ -11,7 +11,7 @@
 	<title>Statistics</title>
         <div class = "header">
 			<img src="f2fd_logo.png" alt="F2FD" id="logo"/>
-			<h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
+			<h1 id="headerh1">Phenotype to Phenotype Prediction</h1>
 	</div>
 </head>
 <body style = "height: 100%;">
@@ -30,7 +30,7 @@
         <script>
             var resultJS = <?php echo $imploded; ?>;
             TESTER = document.getElementById('statistics');
-            
+
             var layout = {
                 title: 'Scores for depression',
                 xaxis: {range: [-4,12]
@@ -60,6 +60,6 @@
         <?php
         include("disconnectDB.php");
         ?>
-    
+
 </body>
 </html>

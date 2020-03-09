@@ -13,7 +13,7 @@
         <div class = "header">
             <img src="f2fd_logo.png" alt="F2FP"
                id="logo"/>
-            <h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
+            <h1 id="headerh1">Phenotype to Phenotype Prediction</h1>
         </div>
     </head>
     <body>

@@ -32,7 +32,7 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
     <title>Auto Generated Questions</title>
     <div class = "header">
         <img src="f2fd_logo.png" alt="F2FD" id="logo"/>
-        <h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
+        <h1 id="headerh1">Phenotype to Phenotype Prediction</h1>
     </div>
   </head>
   <body>

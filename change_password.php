@@ -11,7 +11,7 @@
 		<div class = "header">
 				<img src="f2fd_logo.png" alt="F2FD"
 					 id="logo"/>
-				<h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
+				<h1 id="headerh1">Phenotype to Phenotype Prediction</h1>
 		</div>
 	</head>
 	<body>
@@ -35,7 +35,7 @@
 					</div>
 
     	<div class="table" style = "width:50%; text-align: left; margin: auto; margin-top: 5%;">
-			<form action="change_password.php" method="POST" > 
+			<form action="change_password.php" method="POST" >
 				<div style= 'text-align: center;'>
 					<?php
 						if (isset($_SESSION['message'])) {
@@ -56,7 +56,7 @@
 					<button class = "btn btn1" type="submit" style = "width:150px;"
 					formnovalidate formaction="index.php">Cancel</button>
 					<button class = "btn btn1" type="submit" style = "width:150px;">Send</button>
-				</div>                                                         
+				</div>
 			</form>
 	</body>
 </html>
