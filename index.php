@@ -9,9 +9,9 @@
         <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="indexcss.css">
-        <title>F2FD</title>
+        <title>F2FP</title>
         <div class = "header">
-            <img src="f2fd_logo.png" alt="F2FD"
+            <img src="f2fd_logo.png" alt="F2FP"
                id="logo"/>
             <h1 id="headerh1">Phenotype to Phenotype Diagnosis</h1>
         </div>
