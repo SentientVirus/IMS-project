@@ -1,17 +1,23 @@
 <?php
-session_start();
-include("connectDB.php");
-$result = mysqli_query($link,"select disease_name, Traits.id, question, rg
+	session_start();
+	include("connectDB.php");
+	$D_names = mysqli_query($link,"SELECT disease_name FROM Diseases;");
+$_SESSION['choice']=$_GET['choice'];
+$disease_chosen = $_SESSION['choice'];
+
+$result = mysqli_query($link,"SELECT disease_name, Traits.id, question, rg
                               from Diseases, Traits, Correlations
                               where Diseases.id = disease_id
                               and Traits.id = trait_id
-                              and disease_name = 'Depression';");
+                              and disease_name = '{$disease_chosen}'
+															order by Traits.id;");
 
 for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
 
-   ${"result$i"} = mysqli_query($link,"select disease_name, Traits.id, question, rg
+   ${"result$i"} = mysqli_query($link,"SELECT disease_name, Traits.id, question, rg
    from Diseases, Traits, Correlations
-   where Diseases.id = disease_id and Traits.id = trait_id and disease_name = 'Depression'
+   where Diseases.id = disease_id and Traits.id = trait_id and disease_name = '{$disease_chosen}'
+	 order by Traits.id
    LIMIT ".$i.",1;");
 
 }
@@ -37,8 +43,13 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
         <button class="dropbtn" style = "background-color: #D9181D;">Tests
         </button>
         <div class="dropdown-content">
-          <a href="questionnaire.php">Depression</a>
-          <a href="#">Illness2</a></div></div>
+          <?php
+          foreach ($D_names as $row) {
+            $disease = $row["disease_name"];
+            echo "<a href='questionnaire.php?choice=".$disease."'> ".$disease." </a>";
+          }
+          ?>
+          </div></div>
           <?php
           if (isset($_SESSION['user_id'])){
           echo '<div class="dropdown">
@@ -92,19 +103,6 @@ for($i = 0; $i < mysqli_num_rows($result) + 1; $i++) {
 
 
 
-    <script type="text/javascript">
-      function loopForm(form) {
-        var radioResults = 'Radio buttons: ';
-        for (var i = 1; i < form.elements.length; i++ ) {
-            if (form.elements[i].type == 'radio') {
-                if (form.elements[i]. == true) {
-                    radioResults += form.elements[i].value + ' ';
-                }
-            }
-        }
-        document.getElementById("radioResults").innerHTML = radioResults;
-    }
-    </script>
 
 
   </body>
