@@ -114,6 +114,7 @@
         <input type="submit" value="Submit">
 
     </form>
+    <br><hr><br><a href="Statistics.php"> Statistics page </a><br><br>
 
     <!--
     <script type="text/javascript">
