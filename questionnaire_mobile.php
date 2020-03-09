@@ -14,7 +14,7 @@
         <div class="header_resize">
           <div class="clr"></div>
           <div class="logo">
-            <h1><a href="index.html">F2FD<br />
+            <h1><a href="questionnaire_mobile.php">F2FD<br />
               <small>Faster diagnosis for everyone</small></a></h1>
           </div>
           <div class="clr"></div>
