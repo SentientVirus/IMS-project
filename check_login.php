@@ -15,7 +15,7 @@
 
 
 	//hash password
-	$options = array("cost"=>9);
+	$options = array("cost"=>8);
 	$hashPassword = password_hash($password,PASSWORD_BCRYPT,$options);
 
 	$query = "SELECT id, username, email, password, activated FROM Users WHERE email = '".$email_username."' OR username = '".$email_username."' ";
@@ -26,7 +26,7 @@
 		$row = mysqli_fetch_array($rs);
 		if(password_verify($password, $row['password'])){
 			if ($row['activated'] == 0) {
-				$_SESSION['error'] = "Please verify your email!";
+				$_SESSION['error'] = "<p style = 'color:red;'><b>Please verify your email!</b></p>";
 				header('Location: login.php');
 			}
 			else {
@@ -39,12 +39,12 @@
 			}
 		}
 		else {
-			$_SESSION['error'] = "Wrong password";
+			$_SESSION['error'] = "<p style = 'color:red;'><b>Wrong password</b></p>";
 			header('Location: login.php');
 		}
 	}
 	else {
-		$_SESSION['error'] = "No user found";
+		$_SESSION['error'] = "<p style = 'color:red;'><b>No user found</b></p>";
 		header('Location: login.php');
 	}
 
