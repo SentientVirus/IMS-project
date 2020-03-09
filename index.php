@@ -121,7 +121,7 @@
                 <div class = "table" style = "height:392px;">
                   <div>
                   <p>As it has been previously stated, out test is about common
-                  illnesses such as depression. You can only get an actual diagnosis
+                  illnesses such as depression. You can only get an actual prediction
                 of an illness if you already suffer the disease. Otherwise, you
               have to undergo genetic testing, which is usually slow. That's
             why we recommend you to take our tests. They consist only of 20
